@@ -1,0 +1,197 @@
+/*****************************
+	Tab style
+*****************************/
+
+/* Tab */
+.nav-tabs {
+	.nav-link {
+		color: $gray-3;
+		padding: 0 30px 15px;
+		font-size: 16px;
+		border: none;
+		border-bottom: 3px solid transparent;
+		&:focus {
+			border-bottom-color: $primary;
+		}
+		&:hover {
+			border-bottom-color: $primary;
+		}
+	}
+	.nav-item.show {
+		.nav-link {
+			color: $primary;
+			border-bottom-color: $primary;
+		}
+	}
+	.nav-link.active {
+		color: $primary;
+		border-bottom-color: $primary;
+	}
+}
+
+/* Vertical  Pills Tab */
+.nav-pills {
+  .nav-link {
+    color: $gray-9;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 13px 25px;
+    margin-bottom: 10px;
+    border-radius: $border-radius-md;
+  }
+
+  .nav-link.active {
+    background-color: $primary;
+  }
+
+  .show {
+    >.nav-link {
+      background-color: $primary;
+    }
+
+  }
+
+}
+
+/* Horizontal Pills Tab */
+.nav-pills .nav-item .nav-link {
+  margin-bottom: 0;
+  margin-right: 10px;
+}
+
+/* nav-tabs-1 */
+.nav-tabs-1{
+	border: none;
+	position: relative;
+	z-index: 1;
+	justify-content: center;
+	.nav-link{
+		flex: 0 0 23.2222%;
+    	max-width: 23.2222%;
+		border: none;
+		color: $white;
+		padding: 50px 40px;
+		margin-right: 30px;
+		background:$gray-9;
+		text-align: center;
+		margin-bottom: 10px;
+		border-radius: $border-radius-md;
+			i {
+				display: block;
+				font-size: 60px;
+				line-height: 1;
+				font-weight: normal;
+				color: $primary;
+				margin-bottom: 30px;
+				transition: all 0.3s ease-in-out;
+			}
+		.h6 {
+			font-size: 20px;
+			font-weight: 500;
+			line-height: 28px;
+			margin-bottom: 0;
+		}
+		&.active {
+			color: $white;
+			background:$primary;
+			i {
+				color: $white;
+			}
+		}
+		&:hover {
+			color: $white;
+			background:$primary; 
+			i {
+				color: $white;
+			}
+		}
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+/*****************************
+  Responsive
+*****************************/
+@media (max-width: 1366px) {
+
+.nav-tabs-1{
+  .nav-link{
+     padding: 30px 20px;
+     margin-right: 20px;
+   }
+ }
+}
+@media (max-width: 991px) {
+	.nav-tabs-1{
+  .nav-link{
+     padding: 20px 15px;
+     margin-right: 16px;
+     i{
+     	font-size: 48px;
+     	margin-bottom: 15px;
+     }
+     .h6{
+     	font-size: 14px;
+     	line-height: 20px;
+     }
+   }
+ }
+}
+
+@media (max-width:767px) {
+
+    /* Tab */
+    .nav-tabs .nav-link {
+      padding: 12px 10px;
+      font-size: 14px;
+    }
+
+    /*  Pills Tab */
+		.nav.nav-pills {
+			display: inline-block;
+		}
+
+		.nav-pills .nav-link {
+			display: inline-block;
+			margin: 0 10px 16px 0;
+			font-size: 14px;
+			padding: 10px 20px;
+		}
+
+	  	.nav-pills .nav-item {
+			display: inline-block;
+	  	}
+
+	  		.nav-tabs.nav-tabs-1{
+			  .nav-link{
+			    padding: 20px 15px;
+			  	flex: 0 0 48.48%;
+			    max-width:48.48%;
+
+			   	&:nth-child(2n-4) {
+		     	margin-right: 0;
+
+	      	}
+			   }
+			 }
+
+	}
+
+
+	@media (max-width:575px) {
+
+
+			  .nav-tabs.nav-tabs-1{
+			  .nav-link{
+			    padding: 20px 15px;
+			  	flex: 0 0 100%;
+			    max-width:100%;
+			    margin-right: 0;
+
+			   }
+			 }
+
+
+	}

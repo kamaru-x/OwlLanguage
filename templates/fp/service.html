@@ -1,0 +1,75 @@
+{% extends 'fp/base.html' %}
+{% load static %}
+{% block content %}
+<body>
+
+   <!--===============Header================== -->
+   {% include 'fp/header.html' %}
+    <!--===============Header================== -->
+
+    <!--==============Inner Header=================== -->
+    <div class="inner-header">
+        <div class="breadcrumb-title bg-overlay-black-80 bg-dark" data-jarallax='{"speed": 0.5}'>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="text-white">Services</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="breadcrumb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ol class="breadcrumb-list list-unstyled d-flex">
+                            <li class="breadcrumb-item"><a href="{% url 'home-page' %}"><i class="fas fa-home mr-1"></i>Home</a></li>
+                            <li class="breadcrumb-item active"><span>Services</span></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--===================Inner Header============== -->
+
+    <!--===================Grid Right Sidebar============== -->
+    <section class="space-ptb">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-xl-12 order-md-2 order-1">
+                    <div class="row">
+                        
+                        <div class="col-sm-4 col-md-4 col-lg-4 mb-4 pb-2">
+                            <a href="{% url 'service-details' %}"><div class="service-item">
+                                <div class="service-img">
+                                    <img class="img-fluid" src="{% static 'fp/images/service/02.jpg' %}" alt="">
+                                    <!--<a href="service-single.html"><i class="fas fa-long-arrow-alt-right"></i></a>-->
+                                </div>
+                                <div class="service-info">
+                                    <h6 class="service-info-title"><a href="{% url 'service-details' %}">Competition analysis</a>
+                                    <p class="price"><del style="color:red;">$99</del>&nbsp $49</p></h6>
+                                </div>
+                            </div></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!--=====================Grid Right Sidebar============ -->
+
+  
+     <!--====================footer=============-->
+    {% include 'fp/footer.html' %}
+  <!--===================footer==============-->
+
+
+<!--===================Back To Top============== -->
+    <div id="back-to-top" class="back-to-top">
+        <a href="#"><i class="fas fa-long-arrow-alt-up"></i> </a>
+    </div>
+    <!--===============Back To Top==================  -->
+</body>
+{% endblock content %}

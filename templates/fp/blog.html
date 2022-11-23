@@ -1,183 +1,69 @@
 {% extends 'fp/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="zxx">
-
-<head>
-    <!-- meta tag -->
-    <meta charset="utf-8">
-    <title>Darktrace-Consulting</title>
-    <meta name="description" content="">
-    <!-- responsive tag -->
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-
 {% block content %}
+<body>
+   <!--==============Header=================== -->
+    {% include 'fp/header.html' %}
+    <!--=============Header==================== -->
 
-<body class="defult-home">
-
-    <div class="offwrap"></div>
-
-    <!--Preloader start here-->
-    <div id="pre-load">
-        <div id="loader" class="loader">
-            <div class="loader-container">
-                <div class='loader-icon'><img src="{% static 'fp/assets/images/fav.png' %}" alt="Bizup Consulting Business"></div>
-            </div>
-        </div>
-    </div>
-    <!--Preloader area end here-->
-
-    <!-- Main content Start -->
-    <div class="main-content">
-
-        <!--Full width header Start-->
-        {% include 'fp/header.html' %}
-        <!--Full width header End-->
-
-        <!-- Breadcrumbs Start -->
-        <div class="rs-breadcrumbs img1">
+    <!--=============Inner Header==================== -->
+    <div class="inner-header">
+        <div class="breadcrumb-title bg-overlay-black-80 bg-dark" data-jarallax='{"speed": 0.5}' >
             <div class="container">
-                <div class="breadcrumbs-inner">
-                    <h1 class="page-title">Blogs
-                        <span class="watermark">Blogs</span></h1>
-                </div>
-            </div>
-        </div>
-        <!-- Breadcrumbs End -->
-
-        <!-- Blog Section Start -->
-        <div class="rs-inner-blog pt-100 pb-100 md-pt-70 md-pb-70">
-            <div class="container custom">
                 <div class="row">
-                    <div class="col-lg-4 col-md-12 order-last">
-                        <div class="widget-area">
-                            
-                            <div class="recent-posts mb-50">
-                                <div class="widget-title">
-                                    <h3 class="title">Other Posts</h3>
-                                </div>
-                                {% for b in blog3 %}
-                                    <div class="recent-post-widget">
-                                        {% if b.Image %}
-                                        <div class="post-img">
-                                            <a href="{% url 'blog-detailed' b.Url %}"><img src="{{b.Image.url}}"
-                                                    alt=""></a>
-                                        </div>
-                                        {% endif %}
-                                        <div class="post-desc">
-                                            <a href="{% url 'blog-detailed' b.Url %}"> {{b.Title}}
-                                            </a>
-                                            <span class="date-post"> <i class="fa fa-calendar"></i> {{b.Date}} </span>
-                                        </div>
-                                    </div>
-                                {% endfor %}
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="col-lg-8 pr-35 md-pr-15 md-mt-50">
-                        <div class="row">
-                            
-                            {% for blog in blog %}
-                            <div class="col-lg-12 mb-50">
-                                <div class="blog-item">
-                                    {% if blog.Image %}
-                                        <div class="blog-img">
-                                            <a href="{% url 'blog-detailed' blog.Url %}"><img src="{{blog.Image.url}}"
-                                                    alt=""></a>
-                                            <!-- <ul class="post-categories">
-                                                <li><a href="{% url 'blog-detailed' blog.Url %}">Digital Marketing</a></li>
-                                            </ul> -->
-                                        </div>
-                                    {% endif %}
-                                    <div class="blog-content">
-                                        <h3 class="blog-title"><a href="{% url 'blog-detailed' blog.Url %}">{{blog.Title}}</a></h3>
-                                        <div class="blog-meta">
-                                            <ul class="btm-cate">
-                                                <li>
-                                                    <div class="blog-date">
-                                                        <i class="fa fa-calendar-check-o"></i> {{blog.Date}}
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="author">
-                                                        <i class="fa fa-user-o"></i> admin
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- <div class="blog-desc">
-                                            It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable repetition...
-                                        </div> -->
-                                        <div class="blog-button">
-                                            <a class="blog-btn" href="{% url 'blog-detailed' blog.Url %}">Continue Reading</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            {% endfor %}
-                            
-                            {% if blog.has_previous %}
-                            <div class="col-lg-12 text-center pt-40">
-                                <ul class="pagination-part">
-                                    <li class="active"><a href="?page=1">&laquo;Previous</a></li>
-                                    <li><a href="#">{{blog.number}}</a></li>
-                                    <!-- <li><a class="next-page" href="?page={{blog.previous_page_number}}">Next</a></li> -->
-                                </ul>
-                            </div>
-                            {% endif %}
-
-                            {% if blog.has_next %}
-                            <div class="col-lg-12 text-center pt-40">
-                                <ul class="pagination-part">
-                                    <li><a href="#">{{blog.number}}</a></li>
-                                    <li><a class="next-page" href="?page={{blog.next_page_number}}">Next</a></li>
-                                </ul>
-                            </div>
-                            {% endif %}
-                        </div>
+                    <div class="col-lg-12">
+                        <h1 class="text-white">Blogs</h1>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Blog Section End -->
-    </div>
-    <!-- Main content End -->
-
-    <!-- Footer Start -->
-    {% include 'fp/footer.html' %}
-    <!-- Footer End -->
-
-    <!-- start scrollUp  -->
-    <div id="scrollUp" class="orange-color">
-        <i class="fa fa-angle-up"></i>
-    </div>
-    <!-- End scrollUp  -->
-
-
-    <!-- Search Modal Start -->
-    <div class="modal fade search-modal" id="searchModal" tabindex="-1">
-        <button type="button" class="close" data-bs-dismiss="modal">
-            <span class="flaticon-cross"></span>
-        </button>
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="search-block clearfix">
-                    <form>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Search Here..." type="text">
-                            <button type="submit" value="Search"><i class="flaticon-search"></i></button>
-                        </div>
-                    </form>
+        <div class="breadcrumb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ol class="breadcrumb-list list-unstyled d-flex">
+                            <li class="breadcrumb-item"><a href="{% url 'home-page' %}"><i class="fas fa-home mr-1"></i>Home</a></li>
+                            <li class="breadcrumb-item active"><span>Blogs</span></li>
+                        </ol>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Search Modal End -->
+    <!--=================Inner Header================ -->
+
+    <!--=================Case Study================ -->
+    <section class="space-ptb case-study">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4 col-sm-6 pb-2 mb-4">
+                    <a href="{% url 'blog-details' %}"><div class="case-study-item">
+                        <div class="case-study-img">
+                            <img class="img-fluid" src="{% static 'fp/images/blog/02.jpg' %}" alt="">
+                            <!--<a href="blog-single.php"><i class="fas fa-long-arrow-alt-right"></i></a>-->
+                        </div>
+                        <div class="case-study-info">
+                            <!--<a class="case-study-category" href="blog-single.php">Energy & Environment</a>-->
+                            <h6 class="case-study-title"><a href="{% url 'blog-details' %}">All the Lorem Ipsum generators on the Internet...</a></h6>
+                        </div>
+                    </div></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=================================
+  Case Study -->
+
+     <!--=================================
+  footer-->
+  {% include 'fp/footer.html' %}
+  <!--=============footer====================-->
+
+    <!--===============Back To Top================== -->
+    <div id="back-to-top" class="back-to-top">
+        <a href="#"><i class="fas fa-long-arrow-alt-up"></i> </a>
+    </div>
+    <!--===============Back To Top================== -->
 </body>
-
 {% endblock content %}
-
-</html>

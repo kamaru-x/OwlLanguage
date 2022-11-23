@@ -1,264 +1,138 @@
 {% extends 'fp/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="zxx">
-
-<head>
-    <!-- meta tag -->
-    <meta charset="utf-8">
-    <title>Darktrace-Consulting</title>
-    <meta name="description" content="">
-    <!-- responsive tag -->
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-
 {% block content %}
+  <body>
+    <!--==============Header=================== -->
+   {% include 'fp/header.html' %}
+    <!--===============Header================== -->
 
-<body class="defult-home">
-
-    <div class="offwrap"></div>
-
-    <!--Preloader start here-->
-    <div id="pre-load">
-        <div id="loader" class="loader">
-            <div class="loader-container">
-                <div class='loader-icon'><img src="{% static 'fp/assets/images/fav.png' %}" alt="Bizup Consulting Business"></div>
+    <!--==============Inner Header=================== -->
+    <div class="inner-header">
+      <div class="breadcrumb-title bg-overlay-black-80 bg-dark" data-jarallax='{"speed": 0.5}'>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <h1 class="text-white">Service Detail</h1>
             </div>
+          </div>
         </div>
+      </div>
+      <div class="breadcrumb">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <ol class="breadcrumb-list list-unstyled d-flex">
+                <li class="breadcrumb-item"><a href="{% url 'home-page' %}"><i class="fas fa-home mr-1"></i>Home</a></li>
+                <li class="breadcrumb-item active"><span>Service Detail</span></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <!--Preloader area end here-->
+  <!--================Inner Header================= -->
+  
+  
+  <style>
+    .service-det{
+        float:left;
+        width:100%;
+    }
+     .service-det img{
+        float:left;
+        width:100%;
+    }
+    </style>
+  
 
-    <!-- Main content Start -->
-    <div class="main-content">
-
-        <!--Full width header Start-->
-        {% include 'fp/header.html' %}
-        <!--Full width header End-->
-
-        <!-- Breadcrumbs Start -->
-        <div class="rs-breadcrumbs img1">
-            <div class="container">
-                <div class="breadcrumbs-inner">
-                    <h1 class="page-title">
-                        Service Details
-                        <span class="watermark">Services</span>
-                    </h1>
-                   
-                </div>
+  <!--==================Product=============== -->
+  <section class="space-ptb shop-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-md-6  col-sm-12 col-xs-12 col-12 mb-4 mb-md-0">
+              <div class="service-det">
+               <!--<div class="slider slider-for detail-big-car-gallery">-->
+                 <img src="{% static 'fp/images/service/single-01.jpg' %}" alt="">
+                <!--</div>-->
+                
+              </div>
             </div>
-        </div>
-        <!-- Breadcrumbs End -->
-        
-        <style>
-            .onsale{
-                background:orange;
-            }
-            .megasale {
-                background:green;
-            }
-        </style>
-
-        <!-- Shop Single Start -->
-        <div id="rs-single-shop" class="rs-single-shop pt-100 pb-100 md-pt-80 sm-pb-60">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-sm-12 sm-mb-30">
-                        {% if service.Image %}
-                        <div class="single-product-image">
-                            <div class="images-single">
-                                <img src="{{service.Image.url}}" alt="Single Product">
-                            </div>
-                        </div>
-                        {% endif %}
-                    </div>
-                    <div class="col-md-8 col-sm-12">
-                        <div class="single-price-info pl-30 sm-pl-0"><br><br>
-                            <h3 class="product-title">{{service.Title}}</h3>
-                            {% if service.Show_Price %}
-                                <span class="single-price"><del style="color:grey;">${{service.Actual_Price}}</del>&nbsp ${{service.Offer_Price}}</span>
-                            {% endif %}
-                            <!-- <p class="some-text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p> --> <br><br>
-                            {% if service.Show_Enquiry %}
-                                <button class="add-btn ml-10" type="submit" data-toggle="modal" data-target="#get-quote" href="#" opacity="1">Enquire</button>
-                            {% endif %}
-                        </div>
-                    </div>
+            <div class="col-md-6 col-sm-12 col-xs-12 col-12">
+              <div class="product-detail">
+                <h4>Service Title</h4>
+                <div class="product-price-rating">
+                  
+                  <div class="product-price">
+                    <h4><del>$24.99</del><span>$12.49</span></h4>
+                  </div>
                 </div>
-                <div class="tab-area">
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="description-tab" data-bs-toggle="tab"
-                                data-bs-target="#description" type="button" role="tab" aria-controls="description"
-                                aria-selected="true">Description</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews"
-                                type="button" role="tab" aria-controls="reviews" aria-selected="false">Other Services</button>
-                        </li>
-                    </ul>
-
-                    <div class="tab-content">
-                        <div class="tab-pane fade show active" id="description" role="tabpanel"
-                            aria-labelledby="description-tab">
-                           <div class="single-price-info pl-30 sm-pl-0">
-                           <!--<h4 class="product-title">Product Title</h4>-->
-                            <!-- <span class="single-price"><del style="color:grey;">$200</del>&nbsp $150.00</span> -->
-                            <p class="some-text">{{service.Description}}</p>
-                              
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-                            <div class="reviews-grid">
-                                
- <!--Shop part end-->
-        <div class="rs-shop-part pb-110 md-pb-75">
-            <div class="container">
-                <!--<h4 class="title pb-23 md-pb-10">Related products</h4>-->
-                <div class="row">
-                    {% for s in ser3 %}
-                    <div class="col-lg-4 col-md-6 col-sm-6 md-mb-45">
-                        <div class="product-list">
-                            {% if s.Image %}
-                            <div class="image-product">
-                                <a href="{% url 'service-details' s.Url %}"><img src="{{s.Image.url}}" alt=""></a>
-                                <div class="overley">
-                                    <a href="{% url 'service-details' s.Url %}"><i class="flaticon-shopping-bag"></i></a>
-                                </div>
-                                 <span class="megasale">{{s.Discount}}%</span>
-                            </div>
-                            {% endif %}
-                            <div class="content-desc text-center">
-                                <h2 class="loop-product-title pt-15"><a href="{% url 'service-details' s.Url %}">{{s.Title}}</a>
-                                {% if s.Show_Price %}
-                                    <p class="price"><del style="color:grey;">${{s.Actual_Price}}</del> ${{s.Offer_Price}}</p>
-                                {% endif %}
-                                </h2>
-                                <!--<span class="price">$30.00</span>-->
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+               <a class="btn btn-primary btn-md mr-5 mr-xl-0  d-sm-block col-md-3" href="#" data-toggle="modal" data-target="#get-quote"><i class="btn-icon fas fa-long-arrow-alt-right"></i> <span>Enquire</span> </a>
+              </div>
             </div>
+          </div>
         </div>
-        <!--Shop part end-->
-                    
-                              
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- .tab-area -->
-            </div>
-        </div>
-        <!-- Shop Single Start -->
-        
-        
-        
-        
-        
-       
-        
-
+      </div>
       
     </div>
-    <!-- Main content End -->
+  </section>
+  <!--================Product================= -->
 
-    <!-- Footer Start -->
-    {% include 'fp/footer.html' %}
-    <!-- Footer End -->
+  <!--================footer=================-->
+  {% include 'fp/footer.html' %}
+  <!--================footer=================-->
 
-    <!-- start scrollUp  -->
-    <div id="scrollUp" class="orange-color">
-        <i class="fa fa-angle-up"></i>
-    </div>
-    <!-- End scrollUp  -->
+  <!--================Back To Top================= -->
+  <div id="back-to-top" class="back-to-top">
+    <a href="#"><i class="fas fa-long-arrow-alt-up"></i> </a>
+  </div>
+  <!--=================Back To Top================ -->
+  
+  
+  	<!-- modal pop-up -->
+		<div class="modal " id="get-quote" tabindex="-1" role="dialog" aria-labelledby="language" style="padding-right: 5px;">
+<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+<div class="modal-content">
+<button type="button" class="close_form" data-dismiss="modal" aria-label="Close"></button>
+<div class="modal-body" style="padding:0;">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 clearfix push-left">
+<form class="form-width " method="POST" id="form_submit_1" action="booking_submit.php">
 
-    <div class="modal " id="get-quote" tabindex="-1" role="dialog" aria-labelledby="language" style="padding-right: 5px;">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content">
-        <button type="button" class="close_form" data-dismiss="modal" aria-label="Close"></button>
-        <div class="modal-body" style="padding:0;">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 clearfix push-left">
-        <form class="form-width " method="POST" id="form_submit_1">
-        {% csrf_token %}
-        
-                <h2 style="color:#3c479d; text-align:center; padding-top: 30px;">Join Us As A Volunteer!</h2>
-                
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 clearfix float-left">
-                <div class="log_set" style="margin-bottom:0px;">
-                <label style="color:#000;font-family: 'Source Sans Pro',sans-serif;">Name</label>
-                <input type="text" name="name" class="charonly" value="" placeholder="Enter your name" required="" style=" border:1px solid #ccc; padding: 0px 0px 0px 10px;">
-                </div>  
-                </div>  
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 clearfix float-left">
-                <div class="log_set" style="margin-bottom:0px;">
-                <label style="color:#000;font-family: 'Source Sans Pro',sans-serif;">Mobile No</label>
-                <input type="text" name="mobile" class="charonly" value="" placeholder="Enter your mobile" required="" style=" border:1px solid #ccc; padding: 0px 0px 0px 10px;">
-                </div>  
-                </div>         
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 clearfix float-left">
-                <div class="log_set" style="margin-bottom:0px;">
-                <label style="color:#000;font-family: 'Source Sans Pro',sans-serif;">Email</label>
-                <input type="email" name="email" value="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Enter your email" required="" style=" border:1px solid #ccc; padding: 0px 0px 0px 10px;">
-                </div>
-                </div>
-                <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 clearfix float-left">
-                <div class="log_set" style="margin-bottom:0px;">
-                <label style="color:#000;font-family: 'Source Sans Pro',sans-serif;">Whatsapp No</label>
-                <input type="text" name="whatsapp" value="" class="tel" placeholder="Enter your whatsapp number" required="" style=" border:1px solid #ccc; padding: 0px 0px 0px 10px;">
-                </div>
-                </div>
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 clearfix float-left">
-                <div class="log_set" style="margin-bottom:0px;">
-                <label style="color:#000;font-family: 'Source Sans Pro',sans-serif;">District</label>
-                <input type="text" name="district" class="charonly" value="" placeholder="Enter your district" required="" style=" border:1px solid #ccc; padding: 0px 0px 0px 10px;">
-                </div>  
-                </div>  
-        
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 clearfix float-left">
-                <div class="log_set" style="height:100%; margin-bottom:0px;">
-                <label style="color:#000;font-family: 'Source Sans Pro',sans-serif;">Address</label>
-                <textarea name="address" placeholder="Enter your address" style="height:53px!important; outline:none !important; border:1px solid #ccc; padding: 0px 0px 0px 10px; margin-bottom: 10px;"></textarea>
-                </div>
-                </div>                  
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 clearfix float-left"><button type="submit" name="btnSubmit" class="default-btn" style="width:20%; margin-left:auto; margin-right:auto; display: block; margin-bottom:15px;">SUBMIT</button></div>
-        </form>   
-        </div>
-        <div class="col-md-6 clearfix push-left ml-imgs" style="padding:0;">
-         
-        </div>
-        </div>
-        </div>
-        </div>
-    </div>
+  <h2 style="color:#3c479d; text-align:center; padding-top: 30px;">Quick Enquiry</h2>
+  
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 clearfix float-left">
+<div class="log_set" style="margin-bottom:0px;">
+<label style="color:#000;">Name</label>
+<input type="text" name="name" class="charonly" value="" placeholder="Enter your name" required="" style=" border:1px solid #ccc; padding: 0px 0px 0px 10px;">
+</div>  
+</div>  
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 clearfix float-left">
+<div class="log_set" style="margin-bottom:0px;">
+<label style="color:#000;">Mobile No</label>
+<input type="text" name="mobile" class="charonly" value="" placeholder="Enter your mobile" required="" style=" border:1px solid #ccc; padding: 0px 0px 0px 10px;">
+</div>  
+</div>         
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 clearfix float-left">
+<div class="log_set" style="margin-bottom:30px;">
+<label style="color:#000;">Email</label>
+<input type="email" name="email" value="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Enter your email" required="" style=" border:1px solid #ccc; padding: 0px 0px 0px 10px;">
+</div>
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 clearfix float-left"><button type="submit" name="btnSubmit" class="btn btn-primary" style="width:32%; margin-left:auto; margin-right:auto; display: block; margin-bottom:15px;"><i class="btn-icon fas fa-long-arrow-alt-right"></i>SUBMIT</button></div>
+</form>   
+</div>
+<div class="col-md-6 clearfix push-left ml-imgs" style="padding:15px;">
+ 
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
-    <!-- Search Modal Start -->
-    <div class="modal fade search-modal" id="searchModal" tabindex="-1">
-        <button type="button" class="close" data-bs-dismiss="modal">
-            <span class="flaticon-cross"></span>
-        </button>
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="search-block clearfix">
-                    <form>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Search Here..." type="text">
-                            <button type="submit" value="Search"><i class="flaticon-search"></i></button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Search Modal End -->
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<!-- //modal pop-up -->
 </body>
-
 {% endblock content %}
-
-</html>

@@ -1,0 +1,142 @@
+/*****************************
+  Shortcodes
+*****************************/
+
+/*****************************
+  Accordion
+*****************************/
+
+.card {
+	border: none;
+	margin-bottom: 10px;
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+.card-header {
+	background: none;
+	padding: 0;
+	border-bottom: none;
+}
+.accordion {
+	>.card {
+		.card-header {
+			margin-bottom: 0;
+			.btn {
+				text-align: left;
+				font-size: 16px;
+				line-height: 24px;
+				padding: 11px 45px 11px 26px;
+				font-weight: bold;
+				display: inline-block;
+				width: 100%;
+				&:after {
+					font-family: "Font Awesome 5 Free";
+					position: absolute;
+					top: 12px;
+					right: 25px;
+					transition: all 0.3s ease-in-out;
+				}
+			}
+			.btn.collapsed {
+				background: none;
+				color: $gray-9;
+			}
+		}
+	}
+}
+.card-body {
+	padding: 20px 26px;
+}
+
+/* Accordion 1 */
+.accordion-style-1 {
+	>.card {
+		.card-header {
+			.btn {
+				background: $primary;
+				color: $white;
+				&:after {
+					content: "\f068";
+				}
+			}
+			.btn.collapsed {
+				&:after {
+					content: "\f067";
+				}
+			}
+		}
+	}
+}
+
+/* Accordion 2 */
+.accordion-style-2 {
+	>.card {
+		.card-header {
+			.btn {
+				background: $primary;
+				color: $white;
+				&:after {
+					content: "\f077";
+				}
+			}
+			.btn.collapsed {
+				&:after {
+					content: "\f078";
+				}
+			}
+		}
+	}
+}
+
+/* Accordion 3 */
+.accordion-style-3 {
+	.card {
+		border-bottom: 1px solid $border-color;
+	}
+	>.card {
+		.card-header {
+			.btn {
+				color: $primary;
+				padding: 18px 50px 18px 0px;
+				font-size: 14px;
+				&:after {
+					content: "\f068";
+					background: $primary;
+					color: $white;
+					border: 1px solid $primary;
+					width: 40px;
+					height: 40px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					border-radius: $border-radius-md;
+					right: 0;
+				}
+			}
+			.btn.collapsed {
+				&:after {
+					content: "\f067";
+					background: none;
+					color: $primary;
+					border-color: $primary;
+				}
+			}
+		}
+	}
+	.card-body {
+		padding: 15px 0 33px;
+	}
+}
+.accordion.accordion-style-3 {
+	>.card {
+		&:first-of-type {
+			border-bottom: 1px solid $border-color;
+		}
+		&:not(:first-of-type) {
+			&:not(:last-of-type) {
+				border-bottom: 1px solid $border-color;
+			}
+		}
+	}
+}

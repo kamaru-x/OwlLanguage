@@ -1,0 +1,87 @@
+/*****************************
+  Datetimepicker
+*****************************/
+
+.bootstrap-datetimepicker-widget {
+	table {
+		td.active {
+			background-color: $primary;
+			&:hover {
+				background-color: $primary;
+			}
+		}
+		td {
+			&:hover {
+				background-color: none;
+			}
+		}
+		td.day {
+			height: 30px;
+			line-height: 30px;
+			width: 40px;
+			font-size: 14px;
+		}
+		th {
+			font-size: 14px;
+		}
+		span.active {
+			background: $primary;
+		}
+		td.today {
+			&:before {
+				border-bottom-color: $primary;
+			}	
+		}
+	}
+
+}
+
+.timepicker-picker {
+	.btn-primary {
+		&:hover { 
+			background: $gray-9;
+		}
+		&:before {
+			content: none;
+		}
+	}	
+		.btn:hover > {
+		span { 
+			opacity: 1;
+			transform: none;
+		}
+	}
+}
+
+.bootstrap-datetimepicker-widget.dropdown-menu {
+	width: 19rem;
+}
+
+.input-group {
+	>.custom-select {
+		&:not(:last-child) {
+			border-radius: $border-radius-md;
+		}
+	}
+	>.form-control {
+		&:not(:last-child) {
+			border-radius: $border-radius-md;
+		}
+	}
+}
+
+.input-group-append {
+    margin-left: 0;
+    position: absolute;
+	right: 20px;
+	top: 50%;
+    z-index: 3;
+    transform: translate(0%, -50%);
+}
+
+.input-group-text {
+	background: none;
+	padding: 0;
+	border: none;
+}
+

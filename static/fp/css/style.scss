@@ -1,0 +1,98 @@
+/*
+
+Template: Owl Language - Corporate HTML5 template
+Version: 1.0.0
+Author: potenzaglobalsolutions
+Design and Developed by: potenzaglobalsolutions.com
+
+NOTE: This is main stylesheet of template, This file contains the styling for the actual Template.
+
+*/
+
+/*================================================
+[  Table of contents  ]
+================================================
+
+ :: Typography
+ :: Helper Classes
+ :: Shortcodes
+    - Accordion
+    - Action box
+    - Button
+    - Case study
+    - Countdown
+    - Counter
+    - Datetimepicker
+    - Feature info
+    - List
+    - Owl carousel
+    - Pie chart
+    - Portfolio
+    - Pricing
+    - Progress bar
+    - Range slider
+    - Select Dropdown
+    - Service
+    - Tab style
+    - Team
+    - Testimonial
+ :: Header
+   - Header Style 01
+   - Header Style 02
+ :: Banner
+   - Banner 01
+   - Banner 02
+   - Banner 03
+ :: Layout
+   - Section Title
+   - Client Logo
+   - Vertical Menu
+ :: Blog
+   - Blog
+ :: Shop
+   - Shop
+ :: Not Found
+ :: Footer
+
+======================================
+[ End table content ]
+======================================*/
+
+// Core files
+@import "variables";
+@import "typography";
+@import "helpers";
+
+// Shortcodes
+@import "shortcodes/button";
+@import "shortcodes/accordion";
+@import "shortcodes/list";
+@import "shortcodes/action-box";
+@import "shortcodes/feature-info";
+@import "shortcodes/service";
+@import "shortcodes/portfolio";
+@import "shortcodes/team";
+@import "shortcodes/testimonial";
+@import "shortcodes/counter";
+@import "shortcodes/countdown";
+@import "shortcodes/tabs";
+@import "shortcodes/owl-carousel";
+@import "shortcodes/case-study";
+@import "shortcodes/progress-bar";
+@import "shortcodes/pricing";
+@import "shortcodes/pie-chart";
+@import "shortcodes/datetimepicker";
+@import "shortcodes/select";
+@import "shortcodes/range-slider";
+
+// Structure
+@import "header";
+@import "sidebar";
+@import "banner";
+@import "layout";
+
+// Pages
+@import "blog";
+@import "shop";
+@import "error";
+@import "footer";

@@ -1,0 +1,362 @@
+/*****************************
+  Layout
+*****************************/
+
+/* Section Title */
+.section-title {
+	margin-bottom: 50px;
+	.pre-title {
+		font-size: 14px;
+		color: $primary;
+		font-weight: bold;
+	}
+}
+
+/* Client Logo */
+.our-clients {
+	.owl-item {
+		text-align: center;
+		img {
+			filter: grayscale(100%);
+			transition: all 0.3s ease-in-out;
+		}
+		&:hover {
+			img {
+				filter: inherit;
+			}
+		}
+	}
+}
+
+/* Back To Top */
+.back-to-top {
+	a {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: fixed;
+		bottom: 50px;
+		right: 40px;
+		width: 40px;
+		height: 40px;
+		margin: 0px;
+		color: $white;
+		font-size: 16px;
+		background: $primary;
+		border-radius: $border-radius-md;
+		box-shadow: $box-shadow;
+		transition: all 0.3s ease-in-out;
+		z-index: 999;
+		&:hover {
+			background: $gray-9;
+			color: $white;
+		}
+		&:focus {
+			background: $gray-9;
+			color: $white;
+		}
+	}
+}
+
+/* Border Radius */
+.rounded {
+	border-radius: $border-radius-md !important;
+}
+
+.rounded-lg {
+	border-radius: $border-radius-lg !important;
+}
+
+.mt-n6 {
+	margin-top: -6rem;
+}
+
+/* Vertical Menu */
+.vertical-menu {
+	li {
+		margin-bottom: 10px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+		a {
+			display: block;
+			color: $gray-9;
+			padding: 8px 20px;
+			font-weight: 700;
+			border-radius: $border-radius-md;
+			&:hover {
+				background-color: $primary;
+				color: $white;
+			}
+		}
+		a.active {
+			background-color: $primary;
+			color: $white;
+		}
+	}
+}
+
+/* Social Bg Color */
+.social-bg-hover {
+	&:before {
+		content: "";
+		color: $white;
+		width: 200%;
+		height: 200%;
+		display: inline-block;
+		position: absolute;
+		left: -50%;
+		top: -50%;
+	    border-radius:$border-radius-md;
+	    transition: all 0.3s ease-in-out;
+	}
+	position: relative;
+	color: $white;
+	&:hover {
+		color: $white;
+	}
+	span {
+		position: relative;
+	}
+}
+
+.facebook-bg {
+	background-color: #445c8e;
+	&:hover {
+		&:before {
+			background-color: #25417d;
+		}
+	}
+}
+
+.twitter-bg {
+	background-color: #43afe9;
+	&:hover {
+		&:before {
+			background-color: #0199ea;
+		}
+	}
+}
+
+.google-bg {
+	background-color: #dc0510;
+	&:hover {
+		&:before {
+			background-color: #cc0711;
+		}
+	}
+}
+
+.instagram-bg{
+	background-color: #DD2A7B;
+	&:hover {
+		&:before {
+			background-color: #ec006b;
+		}
+	}
+}
+
+.linkedin-bg {
+	background-color: #007eb3;
+	&:hover {
+		&:before {
+			background-color: #00618a;
+		}
+	}
+}
+
+/* Maintenance */
+.maintenance-content {
+	padding-top: 100px;
+}
+
+/* Coming soon */
+.coming-soon-top{
+	position: absolute;
+	left: 0;
+	right: 0;
+ }
+
+.coming-soon-section {
+	padding-top: 100px;
+	.coming-soon-icon {
+		i {
+			font-size: 110px;
+			color: $gray-2;
+		}
+	}
+}
+
+/* Form */
+.form-control {
+	padding: 14px 20px;
+	height: 52px;
+	font-size: 14px;
+	border-color: $border-color;
+	border-radius: $border-radius-md;
+	transition: all 0.3s ease-in-out;
+	&:focus {
+		box-shadow: none;
+		border-color: $border-color-3;
+	}
+}
+.custom-control-input {
+	&:checked {
+		~ {
+			.custom-control-label {
+				&:before {
+					background: $primary;
+					border-color: $primary;
+				}
+			}
+		}
+	}
+}
+
+.custom-control-input:not(:disabled):active~.custom-control-label::before {
+	background: $primary;
+	border-color: $primary;
+}
+
+.custom-control-input:focus:not(:checked)~.custom-control-label::before {
+	border-color: $primary;
+}
+
+.custom-control-input:focus~.custom-control-label::before {
+	box-shadow: none;
+}
+
+
+/* Input Size */
+.form-control-sm {
+  height: 44px;
+}
+
+.form-control-md {
+  height: 52px;
+}
+
+.form-control-lg {
+  height: 58px;
+}
+
+.form-control-xl {
+  height: 62px;
+  font-size: 1.45rem;
+}
+
+/* Form Inline */
+.form-inline {
+	position: relative;
+	.btn {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+	.form-group {
+		width: 100%;
+	}
+	.form-control {
+		width: 100%;
+	}
+}
+
+.form-flat-style {
+	.form-control {
+		background-color: $gray-1;
+		border-color: $border-color-2;
+		&:focus {
+			border-color: $border-color-3;
+		}
+	}
+}
+
+/* Newsletter */
+.input-with-btn .form-control {
+  padding-right: 124px;
+}
+
+/* Newsletter Input Size */
+.input-with-btn {
+	.form-control-sm {
+		padding-right: 114px;
+	}
+	.form-control-md {
+		padding-right: 124px;
+	}
+	.form-control-lg {
+		padding-right: 146px;
+	}
+	.form-control-xl {
+		padding-right: 156px;
+	}
+}
+
+/* Chart */
+.chart {
+	max-width: 650px;
+	margin: 0px auto;
+	.apexcharts-tooltip {
+		display: flex;
+		border: 0;
+		box-shadow: none;
+	}
+}
+.apexcharts-tooltip-title {
+	display: none;
+}
+
+/* Tooltip */
+.bs-tooltip-auto[x-placement^=right] .arrow::before,
+.bs-tooltip-right .arrow::before {
+	border-right-color: $white
+}
+
+.tooltip-inner {
+	width: 120px;
+	padding: 5px;
+	background-color: $white;
+	box-shadow: 0px 5px 10px rgba($black, 0.1);
+}
+
+.tooltip.show {
+	opacity: 1;
+}
+
+/*****************************
+  Responsive
+*****************************/
+
+@media (min-width: 1200px) {
+
+	.container {
+		max-width: 1300px;
+	}
+
+}
+
+@media (max-width:991px) {
+
+	/* Section Title */
+	.section-title {
+		margin-bottom: 30px;
+	}
+
+}
+
+@media only screen and (min-width:768px) and (max-width:991px) {
+
+	.container {
+		max-width: 96%;
+	}
+	
+}
+
+@media (max-width:767px) {
+
+	/* Section Title */
+	.section-title {
+		margin-bottom: 20px;
+	}
+
+}

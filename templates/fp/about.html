@@ -1,152 +1,91 @@
 {% extends 'fp/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="zxx">
-
-<head>
-    <!-- meta tag -->
-    <meta charset="utf-8">
-   <title>Darktrace-Consulting</title>
-    <meta name="description" content="">
-    <!-- responsive tag -->
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-
 {% block content %}
+<body>
 
-<body class="defult-home">
+    <!--==============Header=================== -->
+    {% include 'fp/header.html' %}
+    <!--==============Header=================== -->
 
-    <div class="offwrap"></div>
-
-    <!--Preloader start here-->
-    <!-- <div id="pre-load">
-        <div id="loader" class="loader">
-            <div class="loader-container">
-                <div class='loader-icon'><img src="assets/images/fav.png" alt="Bizup Consulting Business"></div>
-            </div>
-        </div>
-    </div> -->
-    <!--Preloader area end here-->
-
-    <!-- Main content Start -->
-    <div class="main-content">
-
-        <!--Full width header Start-->
-        {% include 'fp/header.html' %}
-        <!--Full width header End-->
-
-
-        <!-- Breadcrumbs Start -->
-        <div class="rs-breadcrumbs img1">
-            <div class="container">
-                <div class="breadcrumbs-inner">
-                    <h1 class="page-title">
-                       About Us
-                        <span class="watermark">About</span>
-                    </h1>
-                    <!-- <span class="sub-text">Excepteur sint occaecat cupidatat non proident, sunt in coulpa qui official
-                        modeserunt mollit anim id est laborum 20 years experience.</span> -->
-                </div>
-            </div>
-        </div>
-        <!-- Breadcrumbs End -->
-
-        <!-- About Section Start -->
-            <div class="rs-about main-home bg1 pt-110 pb-110 md-pt-70 md-pb-65">
-                <div class="container">
-                    <div class="row y-middle">
-                        <div class="col-lg-6 md-mb-50">
-                            {% if about.Image %}
-                                <div class="images-part">
-                                    <img src="{{about.Image.url}}" alt="Images">
-                                </div>
-                            {% endif %}
-                        </div>
-                        <div class="col-lg-6 pl-60 md-pl-15">
-                            <div class="sec-title">
-                                <h2 class="title pb-30">
-                                    {{about.Title}}
-                                </h2>
-                                <span class="sub-text">{{about.Description|safe}}</span>
-
-                                <p class="margin-0" style="text-align: justify;"></p>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- About Section End -->
-
-        <!-- Services Section Start -->
-        <div id="rs-services" class="rs-services chooseus-style about-style pt-100 pb-100 md-pt-70 md-pb-70" style="background-color:#dbdbdb;">
+    <!--==============Inner Header=================== -->
+    <div class="inner-header">
+        <div class="breadcrumb-title bg-overlay-black-80 bg-dark" data-jarallax='{"speed": 0.5}'>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 col-md-6 md-mb-30">
-                        <div class="services-item">
-                            <div class="services-icon">
-                                <img src="{% static 'fp/assets/images/choose/icons/1.png' %}" alt="Images">
-                            </div>
-                            <div class="services-text">
-                                <h3 class="title" style="color:#000;">Our Vision</h3>
-                                <p class="services-txt" style="color:#000;">{{about.Vision}}</p>
-                            </div>
-                        </div>
+                    <div class="col-lg-12">
+                        <h1 class="text-white">About us</h1>
                     </div>
-                    <div class="col-lg-6 col-md-6 sm-mb-30">
-                        <div class="services-item">
-                            <div class="services-icon">
-                                <img src="{% static 'fp/assets/images/choose/icons/2.png' %}" alt="Images">
-                            </div>
-                            <div class="services-text">
-                                <h3 class="title" style="color:#000;">Our Mission</h3>
-                                <p class="services-txt" style="color:#000;">{{about.Mission}}</p>
-                            </div>
-                        </div>
-                    </div>
-                    
                 </div>
             </div>
         </div>
-        <!-- Services Section End -->
-
-       
-    </div>
-    <!-- Main content End -->
-
-    <!-- Footer Start -->
-    {% include 'fp/footer.html' %}
-    <!-- Footer End -->
-
-    <!-- start scrollUp  -->
-    <div id="scrollUp" class="orange-color">
-        <i class="fa fa-angle-up"></i>
-    </div>
-    <!-- End scrollUp  -->
-
-
-    <!-- Search Modal Start -->
-    <div class="modal fade search-modal" id="searchModal" tabindex="-1">
-        <button type="button" class="close" data-bs-dismiss="modal">
-            <span class="flaticon-cross"></span>
-        </button>
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="search-block clearfix">
-                    <form>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Search Here..." type="text">
-                            <button type="submit" value="Search"><i class="flaticon-search"></i></button>
-                        </div>
-                    </form>
+        <div class="breadcrumb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ol class="breadcrumb-list list-unstyled d-flex">
+                            <li class="breadcrumb-item"><a href="{% url 'home-page' %}"><i class="fas fa-home mr-2"></i>Home</a></li>
+                            <li class="breadcrumb-item active"><span>About us</span></li>
+                        </ol>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Search Modal End -->
+    <!--================Inner Header================= -->
+
+  
+     <!--===============About Company================== -->
+    <section class="space-ptb">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 mb-md-0 mb-4">
+            <img class="img-fluid rounded" src="{% static 'fp/images/about/about-img.jpg' %}" alt="">
+          </div>
+          <div class="col-md-6">
+            <div class="section-title" style="margin-bottom:20px; padding-top:24px;">
+              <!--<span class="pre-title">We can help you</span>-->
+              <h2>All the Lorem Ipsum, Internet tend to repeat chunks.</h2>
+            </div>
+             <p class=" mb-4" style="text-align:justify;">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose.</p>
+            <p class=" mb-4" style="text-align:justify;">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--==================About Company=============== -->
+   
+
+  <!--=================Chart================ -->
+  <section class="space-pb">
+    <div class="container">
+      <div class="row">
+        
+        <div class="col-md-6">
+          <h3><i class="flaticon-eye" style="color:#f85a14;"></i> Our Vision</h3>
+          <!--<strong class="my-4">Our Vision</strong>-->
+          <p class="">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. </p>
+         </div>
+         <div class="col-md-6">
+           <h3><i class="flaticon-checklist" style="color:#f85a14;"></i> Our Mission</h3>
+          <!--<strong>Our Mission</strong>-->
+          <p class="mb-0">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. </p>
+        </div>
+        </div>
+        <!--<div class="col-md-6">-->
+        <!--    <img src="images/about/approach.jpg">-->
+        <!--</div>-->
+      </div>
+    </div>
+  </section>
+  <!--==============Chart=================== -->
+  <!--==============footer===================-->
+  {% include 'fp/footer.html' %}
+  <!--==============footer===================-->
+
+  <!--==============Back To Top=================== -->
+    <div id="back-to-top" class="back-to-top">
+        <a href="#"><i class="fas fa-long-arrow-alt-up"></i> </a>
+    </div>
+  <!--==============Back To Top=================== -->
 </body>
-
 {% endblock content %}
-
-</html>

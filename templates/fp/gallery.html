@@ -1,115 +1,66 @@
 {% extends 'fp/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="zxx">
-
-<head>
-    <!-- meta tag -->
-    <meta charset="utf-8">
-    <title>Darktrace Consulting</title>
-    <meta name="description" content="">
-    <!-- responsive tag -->
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-
 {% block content %}
+<body>
 
-<body class="defult-home">
+    <!--==============Header=================== -->
+    {% include 'fp/header.html' %}
+    <!--==============Header=================== -->
 
-    <div class="offwrap"></div>
-
-    <!--Preloader start here-->
-    <div id="pre-load">
-        <div id="loader" class="loader">
-            <div class="loader-container">
-                <div class='loader-icon'><img src="assets/images/fav.png" alt="Darktrace Consulting"></div>
-            </div>
-        </div>
-    </div>
-    <!--Preloader area end here-->
-
-    <!-- Main content Start -->
-    <div class="main-content">
-
-        <!--Full width header Start-->
-        {% include 'fp/header.html' %}
-        <!--Full width header End-->
-
-        <!-- Breadcrumbs Start -->
-        <div class="rs-breadcrumbs img1">
-            <div class="container">
-                <div class="breadcrumbs-inner">
-                    <h1 class="page-title">
-                        Gallery
-                        <span class="watermark">Gallery</span>
-                    </h1>
-                </div>
-            </div>
-        </div>
-        <!-- Breadcrumbs End -->
-
-        <!-- Team Start -->
-        <div id="rs-team" class="rs-team style2 pt-100 pb-100 md-pt-70 md-pb-70">
+    <!--=============Inner Header==================== -->
+    <div class="inner-header">
+        <div class="breadcrumb-title bg-overlay-black-80 bg-dark" data-jarallax='{"speed": 0.5}'>
             <div class="container">
                 <div class="row">
-                {% for album in albums %}    
-                    <div class="col-lg-4 col-md-6 mb-30">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <a href="{% url 'album-page' album.id %}"><img src="{{album.Thumbnail.url}}" alt=""></a>
-                            </div>
-                            <div class="team-content">
-                                <div class="team-info">
-                                    <div class="name">
-                                        <a href="{% url 'album-page' album.id %}">{{album.Title}}</a>
-                                    </div>
-                                   
-                                </div>
-                                
-                            </div>
-                        </div>
+                    <div class="col-lg-12">
+                        <h1 class="text-white">Gallery</h1>
                     </div>
-                {% endfor %}    
                 </div>
             </div>
         </div>
-        <!-- Team end -->
-
-    </div>
-    <!-- Main content End -->
-
-    <!-- Footer Start -->
-    {% include 'fp/footer.html' %}
-    <!-- Footer End -->
-
-    <!-- start scrollUp  -->
-    <div id="scrollUp" class="orange-color">
-        <i class="fa fa-angle-up"></i>
-    </div>
-    <!-- End scrollUp  -->
-
-    <!-- Search Modal Start -->
-    <div class="modal fade search-modal" id="searchModal" tabindex="-1">
-        <button type="button" class="close" data-bs-dismiss="modal">
-            <span class="flaticon-cross"></span>
-        </button>
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="search-block clearfix">
-                    <form>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Search Here..." type="text">
-                            <button type="submit" value="Search"><i class="flaticon-search"></i></button>
-                        </div>
-                    </form>
+        <div class="breadcrumb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ol class="breadcrumb-list list-unstyled d-flex">
+                            <li class="breadcrumb-item"><a href="{% url 'home-page' %}"><i class="fas fa-home mr-1"></i>Home</a></li>
+                            <li class="breadcrumb-item active"><span>Gallery</span></li>
+                        </ol>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Search Modal End -->
+    <!--===================Inner Header============== -->
+
+    <!--====================Portfolio============= -->
+    <section class="space-ptb">
+        <div class="container">
+            <div class="my-shuffle-container columns-3 popup-gallery full-screen">
+                
+                <a  href="{% url 'album-page' %}"><div class="grid-item">
+                    <div class="portfolio-item">
+                        <img class="img-fluid" src="{% static 'fp/images/gallery/12.jpg' %}" alt="">
+                    </div>
+                    <div class="album-caption-title">
+                        <h6><a  href="{% url 'album-page' %}">Album 2- Album Caption</a></h6>
+                    </div>
+                </div></a>
+
+            </div>
+        </div>
+    </section>
+    <!--===============Portfolio================== -->
+
+    <!--================footer=================-->
+  {% include 'fp/footer.html' %}
+  <!--================footer=================-->
+
+
+    <!--==============Back To Top=================== -->
+    <div id="back-to-top" class="back-to-top">
+        <a href="#"><i class="fas fa-long-arrow-alt-up"></i> </a>
+    </div>
+    <!--================Back To Top================= -->
 </body>
-
 {% endblock content %}
-
-</html>

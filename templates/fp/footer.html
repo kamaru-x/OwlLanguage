@@ -1,124 +1,103 @@
-{% load static %}
-<footer id="rs-footer" class="rs-footer style1">
-            <div class="footer-top">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-12 col-sm-12 md-mb-10"><br><br><br>
-                            <div class="footer-logo mb-40">
-                                <a href=""><img src="{{contact.Image.url}}" alt=""></a>
-                            </div>
-                              
-                            <ul class="footer-social">
-                                {% if contact.Facebook %}
-                                    <li><a href="https://www.facebook.com/{{contact.Facebook}}"><i class="fa fa-facebook"></i></a></li>
-                                {% endif %}
-                                {% if contact.Twitter %}
-                                    <li><a href="https://www.twitter.com/{{contact.Twitter}}"><i class="fa fa-twitter"></i></a></li>
-                                {% endif %}
-                                {% if contact.Instagram %}
-                                    <li><a href="https://www.instagram.com/{{contact.Instagram}}"><i class="fa fa-instagram"></i></a></li>
-                                {% endif %}
-                                {% if contact.Linkedin %}
-                                    <li><a href="https://www.linkedin.com/{{contact.Linkedin}}"><i class="fa fa-linkedin"></i></a></li>
-                                {% endif %}
-                            </ul>
-                        </div>
-                        <div class="col-lg-2 col-md-12 col-sm-12 md-mb-10 pl-55 md-pl-15">
-                            <h3 class="footer-title">Quick Links</h3>
-                            <ul class="site-map">
-                                <li><a href="{% url 'home-page' %}">Home</a></li>
-                                {% if quick.About_Page %}
-                                    <li><a href="{% url 'about-page' %}">About</a></li>
-                                {% endif %}
-
-                                {% if quick.Service_Page %}
-                                    <li><a href="{% url 'service-page' %}">Services</a></li>
-                                {% endif %}
-
-                                {% if quick.Products_Page %}
-                                    <li><a href="{% url 'product-page' %}">Products</a></li>
-                                {% endif %}
-
-                                {% if quick.Blog_Page %}
-                                    <li><a href="{% url 'blogs-page' %}">Blogs</a></li>
-                                {% endif %}
-
-                                {% if quick.Contact_Page %}
-                                    <li><a href="{% url 'contact-page' %}">Contact</a></li>
-                                {% endif %}
-                            </ul>
-                        </div>
-
-                        {% if quick.Optional_Service %}
-                        <div class="col-lg-2 col-md-12 col-sm-12 md-mb-10 pl-55 md-pl-15">
-                            <h3 class="footer-title">Services</h3>
-                            <ul class="site-map">
-                                {% for service in fs %}
-                                    <li><a href="{% url 'service-details' service.Url %}">{{service.Title}}</a></li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                        {% endif %}
-
-                        {% if quick.Optional_Products %}
-                        <div class="col-lg-2 col-md-12 col-sm-12 md-mb-10 pl-55 md-pl-15">
-                            <h3 class="footer-title">Products</h3>
-                            <ul class="site-map">
-                                {% for product in fp %}
-                                    <li><a href="{% url 'product-details' product.Url %}">{{product.Title}}</a></li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                        {% endif %}
-
-                        <div class="col-lg-3 col-md-12 col-sm-12 md-mb-10">
-                            <h3 class="footer-title">Contact Info</h3>
-                            <ul class="address-widget">
-                                <li>
-                                    <i class="flaticon-location"></i>
-                                    <div class="desc">{{contact.Adress}}</div>
-                                </li>
-                                <li>
-                                    <i class="flaticon-call"></i>
-                                    <div class="desc">
-                                       <a href="#">{{contact.Mobile}}</a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <i class="flaticon-email"></i>
-                                    <div class="desc">
-                                        <a href="mailto:support@xyz.com">{{contact.Email}}</a>
-                                    </div>
-                                </li>
-                                <!--<li>-->
-                                <!--    <i class="flaticon-clock-1"></i>-->
-                                <!--    <div class="desc">-->
-                                <!--        Office Hours: 8AM - 11PM  -->
-                                <!--    </div>-->
-                                <!--</li>-->
-                            </ul>
-                        </div>
-                        
-                    </div>
-                </div>
+ {% load static %}
+ <footer class="space-pt footer footer-02 bg-dark">
+    <div class="container">
+      <div class="row">
+          
+        <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
+            <br><br>
+           <div class="footer-logo mb-4"><br><br><br>
+            <a href="{% url  'home-page' %}"></a><img class="img-fluid" src="{% static 'fp/images/logo.png' %}" alt=""></a>
             </div>
-            <div class="footer-bottom">
-                <div class="container">                    
-                    <div class="row y-middle">
-                        <!--<div class="col-lg-6 md-mb-10 text-lg-end text-center order-last">-->
-                        <!--    <ul class="copy-right-menu">-->
-                        <!--        <li><a href="index.php">Home</a></li>-->
-                        <!--        <li><a href="about.php">About</a></li>-->
-                        <!--        <li><a href="services.php">Services</a></li>-->
-                        <!--        <li><a href="contact.php">Contact</a></li>-->
-                        <!--    </ul>-->
-                        <!--</div>-->
-                        <div class="col-lg-12">
-                            <div class="copyright text-lg-start text-center ">
-                                <p>© 2022 <a href="{% url 'home-page' %}">{{contact.Company_Name}}</a> - Consulting Company Inc. All Rights Reserved. | Made with <i class="fa fa-heart"></i> By <a href="https://www.weblanza.com/" target="_blank">Weblanza</a></p><p><input type="text" disabled display="none" style="background-color:transparent; border: none; color: transparent;" id="theme" value="{{color.Primary}}"></p><p><input type="text" disabled display="none" style="background-color:transparent; border: none; color: transparent;" id="theme2" value="{{color.Secondary}}"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+            <!--<p class="mb-4">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly.</p>-->
+            <!--<div class="footer-email">-->
+            <!--  <p class="text-white mb-1">Telephone : <a href="tel:123-345-6789">(123) 345-6789</a></p>-->
+            <!--  <p class="text-white mb-0">Email : <a href="mailto:letstalk@gmail.com">letstalk@gmail.com</a></p>-->
+            <!--</div>-->
+        </div>
+        <div class="col-lg-2 col-sm-6 mb-4 mb-lg-0">
+          <div class="footer-link">
+            <h6 class="text-white mb-3 mb-md-4">Quick Links</h6>
+            <ul class="list-unstyled">
+              <li><a href="{% url 'home-page' %}"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Home</a></li>
+              <li><a href="{% url 'about-page' %}"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>About</a></li>
+              <li><a href="{% url 'services-page' %}"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Services</a></li>
+              <!-- <li><a href="team.php"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Team</a></li> -->
+              <li><a href="{% url 'blogs-page' %}"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Blogs</a></li>
+              <li><a href="{% url 'gallery-page' %}"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Gallery</a></li>
+              <li><a href="{% url 'contact-page' %}"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-2 col-sm-6 mb-4 mb-lg-0">
+          <div class="footer-link">
+            <h6 class="text-white mb-3 mb-md-4">Services</h6>
+            <ul class="list-unstyled">
+              <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Service1</a></li>
+              <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Service2</a></li>
+              <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Service3</a></li>
+              <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Service4</a></li>
+              <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Service5</a></li>
+              <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Service6</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-sm-6 mb-4 mb-lg-0">
+          <div class="footer-link">
+            <h6 class="text-white mb-3 mb-md-4">Products</h6>
+            <ul class="list-unstyled">
+              <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Product1</a></li>
+              <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Product2</a></li>
+              <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Product3</a></li>
+              <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Product4</a></li>
+              <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Product5</a></li>
+              <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Product6</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-sm-6 mb-4 mb-sm-0">
+          <div class="footer-link">
+            <h6 class="text-white mb-3 mb-md-4">Contact</h6>
+            <p>6580 Allison turnpike creminfort, AL 32808-4509<br>
+            214 West arnold st. new york, ny 10002-1978<br>
+            Telephone : <a href="tel:123-345-6789">(123) 345-6789</a><br>
+            Email : <a href="mailto:letstalk@gmail.com">letstalk@gmail.com</a></p>
+            <!--<h6 class="text-white mb-3 mb-md-4">Support Centre</h6>-->
+            <!--<p class="mb-0"></p>-->
+          </div>
+        </div>
+      <!--  <div class="col-lg-3 col-sm-6">-->
+      <!--  <div class="footer-subscribe">-->
+      <!--     <h6 class="text-white mb-3 mb-md-4">Sign up for our newsletter</h6>-->
+      <!--    <p class="mb-3">Sign up to our Newsletter to get the latest news and offers.</p>-->
+      <!--    <form class="footer-form">-->
+      <!--      <div class="form-group">-->
+      <!--        <input type="text" class="form-control" placeholder="Enter your email">-->
+      <!--      </div>-->
+      <!--      <button type="submit" class="btn btn-light btn-flat"><i class="btn-icon fas fa-paper-plane"></i><span>Subscribe</span></button>-->
+      <!--   </form>-->
+      <!--  </div>-->
+      <!--</div>-->
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+         <div class="border-bottom opacity-2 space-pt"></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <p class="mb-0 text-white"> &copy; Copyright <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span> <a href="{% url 'home-page' %}"> OwnLanguage </a> All Rights Reserved </p>
+          </div>
+          <div class="col-md-6  mt-2 mt-md-0 copyright text-md-right">
+            Designed by <a href="#">Weblanza</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>

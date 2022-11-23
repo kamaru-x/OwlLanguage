@@ -1,0 +1,288 @@
+/*****************************
+  Typography
+*****************************/
+
+body {
+	font-family: $font-base;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 14px;
+	line-height: 24px;
+	color: $body-color;
+	overflow-x: hidden;
+}
+
+a {
+	outline: medium none !important;
+	color: $primary;
+	transition: all 0.3s ease-in-out;
+	&:focus {
+		color: $gray-9;
+		text-decoration: none !important;
+	}
+	&:hover {
+		color: $gray-9;
+		text-decoration: none !important;
+	}
+}
+
+input {
+	outline: medium none !important;
+	color: $primary;
+}
+
+.h1, h1,
+.h2, h2,
+.h3, h3,
+.h4, h4,
+.h5, h5,
+.h6, h6 {
+	font-family: $font-hedding;
+	font-weight: 800;
+	color: $gray-9;
+	margin-top: 0px;
+	a {
+		color: inherit;
+	}
+}
+
+label {
+	font-weight: normal;
+}
+
+.h1,
+h1 {
+	font-size: 52px;
+	line-height: 62px;
+}
+
+.h2,
+h2 {
+	font-size: 42px;
+	line-height: 52px;
+}
+
+.h3,
+h3 {
+	font-size: 36px;
+	line-height: 46px;
+}
+
+.h4,
+h4 {
+	font-size: 28px;
+	line-height: 38px;
+}
+
+.h5,
+h5 {
+	font-size: 24px;
+	line-height: 34px;
+}
+
+.h6,
+h6 {
+	font-size: 18px;
+	line-height: 28px;
+}
+
+p {
+	line-height: 24px;
+}
+
+.lead {
+	font-size: 16px;
+}
+
+small,
+.small {
+	font-size: 12px;
+	line-height: 16px;
+}
+
+*::-moz-selection {
+	background: $primary;
+	color: $white;
+	text-shadow: none;
+}
+
+::-moz-selection {
+	background: $primary;
+	color: $white;
+	text-shadow: none;
+}
+
+::selection {
+	background: $primary;
+	color: $white;
+	text-shadow: none;
+}
+
+/* Flaticon */
+[class^="flaticon-"]:before,
+[class*=" flaticon-"]:before,
+[class^="flaticon-"]:after,
+[class*=" flaticon-"]:after {
+	margin-left: 0;
+	font-size: inherit;
+}
+
+/* Inner header */
+.inner-header {
+	.breadcrumb-title {
+		padding: 100px 0;
+		font-size: 44px;
+		line-height: 50px;
+		h1{
+			margin-bottom: 0;
+		}
+	}
+	.breadcrumb {
+		background: $primary;
+		margin-bottom: 0;
+		padding: 18px 0;
+		border-radius: 0;
+		.breadcrumb-item {
+			font-size: 14px;
+			font-weight: normal;
+			padding-left: 0;
+			padding-right: 10px;
+			a {
+				color: $white;
+				font-weight: normal;
+				&:hover {
+					color: $gray-9;
+				}
+			}
+		}
+		.breadcrumb-item.active {
+			color: $gray-9;
+			font-weight: normal;
+		}
+		.breadcrumb-item+.breadcrumb-item {
+			&:before {
+				content: "\f30b";
+				font-family: "Font Awesome 5 free";
+				padding-right: 10px;
+				font-weight: 600;
+				color: $white;
+			}
+		}
+		.breadcrumb-list {
+			margin-bottom: 0;	
+			flex-wrap: wrap;
+		}
+	}
+	
+}
+
+/*****************************
+  Responsive
+*****************************/
+
+@media (max-width:991px) {
+	.h1,
+	h1 {
+		font-size: 42px;
+		line-height: 52px;
+	}
+
+	.h2,
+	h2 {
+		font-size: 34px;
+		line-height: 44px;
+	}
+
+	.h3,
+	h3 {
+		font-size: 32px;
+		line-height: 42px;
+	}
+
+	.h4,
+	h4 {
+		font-size: 24px;
+		line-height: 34px;
+	}
+
+	.h5,
+	h5 {
+		font-size: 22px;
+		line-height: 32px;
+	}
+
+}
+
+@media (max-width:767px) {
+
+	.h1,
+	h1 {
+		font-size: 32px;
+		line-height: 42px;
+	}
+
+	.h2,
+	h2 {
+		font-size: 28px;
+		line-height: 38px;
+	}
+
+	.h3,
+	h3 {
+		font-size: 26px;
+		line-height: 36px;
+	}
+
+	.h4,
+	h4 {
+		font-size: 22px;
+		line-height: 32px;
+	}
+
+	.h5,
+	h5 {
+		font-size: 20px;
+		line-height: 30px;
+	}
+
+	.h6,
+	h6 {
+		font-size: 16px;
+		line-height: 26px;
+	}
+
+	.inner-header {
+	.breadcrumb-title {
+		padding: 60px 0;
+	}
+ }
+}
+
+@media (max-width:575px) {
+
+	.h1,
+	h1 {
+		font-size: 30px;
+		line-height: 40px;
+	}
+
+	.h2,
+	h2 {
+		font-size: 26px;
+		line-height: 36px;
+	}
+
+	.h3,
+	h3 {
+		font-size: 24px;
+		line-height: 34px;
+	}
+
+	/* Inner header */
+	.inner-header {
+		.breadcrumb-title {
+			font-size: 24px;
+		}
+	}
+
+}

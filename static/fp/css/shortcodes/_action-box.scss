@@ -1,0 +1,18 @@
+/*****************************
+  Action box
+*****************************/
+
+.callout { 
+	padding: 50px;
+	border-radius: $border-radius-md;
+	.callout-title { 
+		align-self: center;  
+    }	
+}
+
+@media (max-width:767px) {
+	.callout { 
+		padding: 30px;	
+	}
+}
+

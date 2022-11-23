@@ -1,0 +1,45 @@
+/*****************************
+  Countdown
+*****************************/
+
+.countdown{
+	display: inline-block;
+	text-align: center;
+	margin: 0 20px;
+
+	span{
+		font-size: 70px;
+		line-height: 1;
+		color: $primary;
+		font-weight: 700;
+	}
+
+	p{
+		font-size: 18px;
+		text-transform: capitalize;
+	}
+}
+
+@media (max-width:767px) {
+
+	.countdown span{
+		font-size: 50px;
+	}
+
+}
+
+@media (max-width:575px) {
+
+	.countdown{
+		margin: 0 10px;
+	}
+
+	.countdown span{
+		font-size: 30px;
+	}
+
+	.countdown p{
+		font-size: 14px;
+	}
+
+}
