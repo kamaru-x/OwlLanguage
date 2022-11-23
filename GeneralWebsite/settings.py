@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'products',
     'services',
     'testimonials',
-    'DarkTrace',
 ]
 
 MIDDLEWARE = [
