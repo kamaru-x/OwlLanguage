@@ -1,0 +1,335 @@
+{% load static %}
+<style type="text/css">
+  @media only screen and (max-width: 600px) {
+    .noshowinmob {
+    display: none;
+    }
+  }
+   .whatsappicon {
+    bottom: 88px;
+    position: fixed;
+    padding: 5px;
+    right: 10px;
+    z-index: 999;
+}
+    .whatsappicon img {
+      width: 55px;
+    } 
+   
+    .phone {
+    bottom: 151px;
+    position: fixed;
+    padding: 5px;
+    right: 14px;
+    z-index: 999;
+}
+    .phone img {
+      width: 55px;
+    } 
+@media only screen and (max-width: 600px) {
+     .whatsappicon {
+      bottom: 96px;
+      right: 15px;
+     }
+    .whatsappicon img {
+      width: 48px;
+    }     
+    .phone {
+      bottom: 158px;
+      right: 15px;
+     }
+    .phone img {
+      width: 48px;
+    }   
+    
+}
+</style> 
+
+<!--//hanging buttons-->
+
+<div class="full-width-header">
+    
+                <!--Header Start-->
+                <header id="rs-header" class="rs-header header-transparent">
+                    <!-- Topbar Area Start -->
+                    <div class="topbar-area style1">
+                        <div class="container custom">
+                            <div class="row y-middle">
+                                <div class="col-lg-8">
+                                    <div class="topbar-contact">
+                                       <ul>
+                                           <li>
+                                               <i class="flaticon-email"></i>
+                                               <a href="mailto:info@darktrace.com">{{contact.Email}}</a>
+                                           </li>
+                                           <li>
+                                               <i class="flaticon-call"></i>
+                                               <a href="tel:(+1)9999999999">{{contact.Mobile}}</a>
+                                           </li>
+                                           <li>
+                                               <i class="flaticon-location"></i>
+                                               {{contact.Adress}}
+                                           </li>
+                                       </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 text-right">
+                                    <div class="toolbar-sl-share">
+                                        <ul class="social">
+                                            {% if contact.Facebook %}
+                                                <li><a href="https://www.facebook.com/{{contact.Facebook}}"><i class="fa fa-facebook"></i></a></li>
+                                            {% endif %}
+                                            {% if contact.Twitter %}
+                                                <li><a href="https://www.twitter.com/{{contact.Twitter}}"><i class="fa fa-twitter"></i></a></li>
+                                            {% endif %}
+                                            {% if contact.Instagram %}
+                                                <li><a href="https://www.instagram.com/{{contact.Instagram}}"><i class="fa fa-instagram"></i></a></li>
+                                            {% endif %}
+                                            {% if contact.Linkedin %}
+                                                <li><a href="https://www.linkedin.com/{{contact.Linkedin}}"><i class="fa fa-linkedin"></i></a></li>
+                                            {% endif %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Topbar Area End -->
+
+                    <!-- Menu Start -->
+                    <div class="menu-area menu-sticky">
+                        <div class="container custom">
+                            <div class="row-table">
+                                <div class="col-cell header-logo">                                  
+                                    <div class="logo-area">
+                                        <a href="{% url 'home-page' %}">
+                                            <img class="normal-logo" src="{{contact.Image.url}}" alt="logo">  
+                                            <img class="sticky-logo" src="{{contact.Image.url}}" alt="logo">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-cell">
+                                    <div class="rs-menu-area">
+                                        <div class="main-menu">
+                                            <nav class="rs-menu hidden-md">
+                                                <ul class="nav-menu">
+                                                    <li class="current-menu-item">
+                                                        <a href="{% url 'home-page' %}">Home</a> 
+                                                    </li>
+
+                                                    {% if menu.About_Page %}
+                                                        <li class="current-menu-item">
+                                                            <a href="{% url 'about-page' %}">About</a>           
+                                                        </li>
+                                                    {% endif %}
+
+                                                    {% if menu.Service_Page %}
+                                                        <li class="current-menu-item">
+                                                            <a href="{% url 'service-page' %}">Services</a>
+                                                        </li>
+                                                    {% endif %}
+                                                    
+                                                    {% if menu.Products_Page %}
+                                                        <li class="current-menu-item">
+                                                            <a href="{% url 'product-page' %}">Products</a>
+                                                        </li>
+                                                    {% endif %}
+
+                                                    {% if menu.Blog_Page %}
+                                                        <li class="current-menu-item">
+                                                            <a href="{% url 'blogs-page' %}">Blog</a>
+                                                        </li>
+                                                    {% endif %}
+
+                                                    {% if menu.Image_Gallery %}
+                                                        <li class="current-menu-item">
+                                                            <a href="{% url 'gallery-page' %}">Gallery</a>
+                                                        </li>
+                                                    {% endif %}
+
+                                                    {% if menu.Contact_Page %}
+                                                        <li class="current-menu-item">
+                                                            <a href="{% url 'contact-page' %}">Contact</a>
+                                                        </li>
+                                                    {% endif %}
+
+                                                </ul> <!-- //.nav-menu -->
+                                            </nav>
+                                        </div> <!-- //.main-menu -->
+                                    </div>
+                                </div>
+                                <div class="col-cell">
+                                    <div class="expand-btn-inner">
+                                        <ul>
+                                            
+                                           <li class="humburger">
+                                                <a id="nav-expander" class="nav-expander bar" href="#">
+                                                    <div class="bar">
+                                                        <span class="dot1"></span>
+                                                        <span class="dot2"></span>
+                                                        <span class="dot3"></span>
+                                                        <span class="dot4"></span>
+                                                        <span class="dot5"></span>
+                                                        <span class="dot6"></span>
+                                                        <span class="dot7"></span>
+                                                        <span class="dot8"></span>
+                                                        <span class="dot9"></span>
+                                                    </div>
+                                                </a>
+                                            </li> 
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Menu End -->
+
+                    <!-- Canvas Menu start -->
+                    <nav class="right_menu_togle hidden-md">
+                        <div class="close-btn">
+                            <a id="nav-close" class="nav-close">
+                                <div class="line">
+                                    <span class="line1"></span>
+                                    <span class="line2"></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="canvas-logo">
+                            <a href="{% url 'home-page' %}"><img src="{{contact.Image.url}}" alt="logo"></a>
+                        </div>
+                        <div class="offcanvas-text">
+                            <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus.</p>
+                        </div>
+                        <div class="media-img">
+                            <img src="{% static 'fp/assets/images/off2.jpg' %}" alt="Images">
+                        </div>
+                        <div class="canvas-contact">
+                            <div class="address-area">
+                                <div class="address-list">
+                                    <div class="info-icon">
+                                        <i class="flaticon-location"></i>
+                                    </div>
+                                    <div class="info-content">
+                                        <h4 class="title">Address</h4>
+                                        <em>{{contact.Adress}}</em>
+                                    </div>
+                                </div>
+                                <div class="address-list">
+                                    <div class="info-icon">
+                                        <i class="flaticon-email"></i>
+                                    </div>
+                                    <div class="info-content">
+                                        <h4 class="title">Email</h4>
+                                        <em><a href="mailto:info@darktrace.com">{{contact.Email}}</a></em>
+                                    </div>
+                                 </div>
+                                <div class="address-list">
+                                    <div class="info-icon">
+                                      <i class="flaticon-call"></i>
+                                    </div>
+                                    <div class="info-content">
+                                      <h4 class="title">Phone</h4>
+                                      <em>{{contact.Mobile}}</em>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="social">
+                                {% if contact.Facebook %}
+                                    <li><a href="https://www.facebook.com/{{contact.Facebook}}"><i class="fa fa-facebook"></i></a></li>
+                                {% endif %}
+                                {% if contact.Twitter %}
+                                    <li><a href="https://www.twitter.com/{{contact.Twitter}}"><i class="fa fa-twitter"></i></a></li>
+                                {% endif %}
+                                {% if contact.Instagram %}
+                                    <li><a href="https://www.instagram.com/{{contact.Instagram}}"><i class="fa fa-instagram"></i></a></li>
+                                {% endif %}
+                                {% if contact.Linkedin %}
+                                    <li><a href="https://www.linkedin.com/{{contact.Linkedin}}"><i class="fa fa-linkedin"></i></a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </nav>
+                    <!-- Canvas Menu end -->
+
+                    <!-- Canvas Mobile Menu start -->
+                    <nav class="right_menu_togle mobile-navbar-menu" id="mobile-navbar-menu">
+                        <div class="close-btn">
+                            <a id="nav-close2" class="nav-close">
+                                <div class="line">
+                                    <span class="line1"></span>
+                                    <span class="line2"></span>
+                                </div>
+                            </a>
+                        </div>
+                        <ul class="nav-menu">
+                            <li class="menu-item-has-children current-menu-item">
+                                <a href="{% url 'home-page' %}">Home</a>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="{% url 'about-page' %}">About</a>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="{% url 'service-page' %}">Services</a> 
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="{% url 'product-page' %}">Products</a>
+                                
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="{% url 'blogs-page' %}">Blog</a>
+                                
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="{% url 'gallery-page' %}">Gallery</a>
+                                
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="{% url 'contact-page' %}">Contact</a> 
+                            </li>
+                        </ul> <!-- //.nav-menu -->
+                        <div class="canvas-contact">
+                              <div class="address-area">
+                                  <div class="address-list">
+                                      <div class="info-icon">
+                                          <i class="flaticon-location"></i>
+                                      </div>
+                                      <div class="info-content">
+                                          <h4 class="title">Address</h4>
+                                          <em>{{contact.Adress}}</em>
+                                      </div>
+                                  </div>
+                                  <div class="address-list">
+                                      <div class="info-icon">
+                                          <i class="flaticon-email"></i>
+                                      </div>
+                                      <div class="info-content">
+                                          <h4 class="title">Email</h4>
+                                          <em><a href="mailto:support@info.com">{{contact.Email}}</a></em>
+                                      </div>
+                                  </div>
+                                  <div class="address-list">
+                                      <div class="info-icon">
+                                          <i class="flaticon-call"></i>
+                                      </div>
+                                      <div class="info-content">
+                                          <h4 class="title">Phone</h4>
+                                          <em>{{contact.Mobile}}</em>
+                                      </div>
+                                  </div>
+                              </div>
+                        </div>
+                    </nav>
+                    <!-- Canvas Menu end --> 
+                     <div class="whatsappicon">
+    <a href="https://wa.me/+91{{contact.Whatsapp}}"><img src="{% static 'fp/assets/images/whatsappicon.png' %}"></a></div>
+  </div>
+   <div class="phone">
+    <a href="tel:{{contact.Mobile}}"><img src="{% static 'fp/assets/images/phone-call.png' %}"></a></div>
+                </header>
+                <!--Header End-->
+            </div>
+
+
+
+           

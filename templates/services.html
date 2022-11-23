@@ -1,0 +1,126 @@
+{% extends 'index.html' %}
+{% block header %}
+<div class="header bg-primary pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <h6 class="h2 text-white d-inline-block mb-0"></h6>
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+              <li class="breadcrumb-item"><a href="#">127.0.0.1</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Services</li>
+            </ol>
+          </nav>
+          {% if messages %}
+              {% for message in messages %}
+                <div class="alert alert-success" role="alert">
+                    {{message}} 
+                </div>
+              {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock header %}
+{% block content %}
+    <main class="mx-5">
+        <div class="container-fluid p-5">
+            <div class="text-center">
+                <h1>ADD SERVICES</h1>
+            </div>
+            <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="row mt-3">
+                    <div class="form-outline mb-4 col-md-4">
+                        <label class="form-label">Service Title</label>
+                        <input required="True" type="text" name="title" class="form-control" />
+                    </div>
+                    <div class="form-outline mb-4 col-md-4">
+                        <label class="form-label">Service Image</label>
+                        <input required="True" type="file" name="image" class="form-control" />
+                    </div>
+                    <div class="form-outline mb-4 col-md-4">
+                      <label class="form-label">Refer Number</label>
+                      <input required="True" type="text" readonly name="rfr" value="{{refer_id}}" class="form-control" />
+                  </div>
+              </div>
+
+              <div class="form-outline mb-4">
+                <label class="form-label">Service Description</label>
+                <textarea required="True" name="description" id="" cols="30" rows="5" class="form-control"></textarea>
+              </div>
+
+              <div class="row text-center mt-5 mb-5">
+                <div class="col-md-3">
+                    <label class="form-label">Show Price</label>
+                    <input type="checkbox" id="checkbox" value="True" name="check1">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Order By whatsapp</label>
+                    <input type="checkbox" id="checkbox" value="True" name="check2">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Show enquiry form</label>
+                    <input type="checkbox" id="checkbox" value="True" name="check3">
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label">Show in Featured</label>
+                  <input type="checkbox" id="checkbox" value="True" name="check4">
+                </div>
+              </div>
+
+              <div class="row border-info" name="div1">
+                <div class="form-outline mb-4 col-md-6">
+                    <label class="form-label">Actual Price</label>
+                    <input type="text" name="actual_price" class="form-control" />
+                </div>
+                <div class="form-outline mb-4 col-md-6">
+                    <label class="form-label">Offer Price</label>
+                    <input type="text" name="offer_price" class="form-control" />
+                </div> 
+              </div>
+
+              <div class="row" name="div2">
+                <div class="form-outline mb-4 col-md-12">
+                    <label class="form-label">Whatsapp Number</label>
+                    <input type="text" value="{{contact.Whatsapp}}" name="number" class="form-control" />
+                </div> 
+              </div>
+
+              <div class="row">
+                <div class="form-outline mb-4 col-md-12">
+                  <label class="form-label">Url</label>
+                  <input required="True" type="text" name="url" class="form-control" />
+              </div>
+              </div>
+
+              <div class="row">
+                <div class="form-outline mb-4 col-md-6">
+                    <label class="form-label">SEO Meta Title</label>
+                    <input type="text" name="smtitle" class="form-control" />
+                </div>
+                <div class="form-outline mb-4 col-md-6">
+                    <label class="form-label">SEO Meta Keywords</label>
+                    <input type="text" name="smkeywords" class="form-control" />
+                </div> 
+              </div>
+              
+              
+              <div class="form-outline mb-4">
+                <label class="form-label">SEO Meta Description</label>
+                <textarea name="smdescription" id="" cols="30" rows="5" class="form-control"></textarea>
+              </div>
+              
+              <div class="row mb-4">
+                <div class="col d-flex justify-content-center">
+                  <button type="submit" class="btn btn-primary btn-block">submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+    </main>
+{% endblock content %}

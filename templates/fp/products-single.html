@@ -1,0 +1,256 @@
+{% extends 'fp/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <!-- meta tag -->
+    <meta charset="utf-8">
+    <title>Darktrace-Consulting</title>
+    <meta name="description" content="">
+    <!-- responsive tag -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+{% block content %}
+
+<body class="defult-home">
+
+    <div class="offwrap"></div>
+
+   
+
+    <!-- Main content Start -->
+    <div class="main-content">
+
+        <!--Full width header Start-->
+        {% include 'fp/header.html' %}
+        <!--Full width header End-->
+
+        <!-- Breadcrumbs Start -->
+        <div class="rs-breadcrumbs img1">
+            <div class="container">
+                <div class="breadcrumbs-inner">
+                    <h1 class="page-title">
+                        Product Details
+                        <span class="watermark">Products</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumbs End -->
+       
+                 <!---->
+          <!-- Shop Single Start -->
+        <div id="rs-single-shop" class="rs-single-shop pt-100 pb-100 md-pt-80 sm-pb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12 sm-mb-30">
+                        {% if product.Image %}
+                        <div class="single-product-image">
+                            <div class="images-single">
+                                <img src="{{product.Image.url}}" alt="Single Product">
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-8 col-sm-12">
+                        <div class="single-price-info pl-30 sm-pl-0"><br><br>
+                            <h3 class="product-title">{{product.Title}}</h3>
+                            {% if product.Show_Price %}
+                                <span class="single-price"><del style="color:grey;">${{product.Actual_Price}}</del>&nbsp ${{product.Offer_Price}}</span>
+                            {% endif %}
+                            <!-- <p class="some-text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p> --> <br><br>
+                            {% if product.Show_Enquiry %}
+                                <button class="add-btn ml-10" type="submit" data-toggle="modal" data-target="#get-quote" href="#" opacity="1">Enquire</button>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-area">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="description-tab" data-bs-toggle="tab"
+                                data-bs-target="#description" type="button" role="tab" aria-controls="description"
+                                aria-selected="true">Description</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews"
+                                type="button" role="tab" aria-controls="reviews" aria-selected="false">Other Products</button>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="description" role="tabpanel"
+                            aria-labelledby="description-tab">
+                           <div class="single-price-info pl-30 sm-pl-0">
+                           <!--<h4 class="product-title">Product Title</h4>-->
+                            <!-- <span class="single-price"><del style="color:grey;">$200</del>&nbsp $150.00</span> -->
+                            <p class="some-text">{{product.Description}}</p>
+                              
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                            <div class="reviews-grid">
+                                
+                                <!--Shop part end-->
+                                        <div class="rs-shop-part pb-110 md-pb-75">
+                                            <div class="container">
+                                                <!--<h4 class="title pb-23 md-pb-10">Related products</h4>-->
+                                                <div class="row">
+                                                {% for p in pro3 %}
+                                                    <div class="col-lg-4 col-md-6 col-sm-6 md-mb-45">
+                                                        <div class="product-list">
+                                                            {% if p.Image %}
+                                                            <div class="image-product">
+                                                                <a href="{% url 'product-details' p.Url %}"><img src="{{p.Image.url}}" alt=""></a>
+                                                                <div class="overley">
+                                                                    <a href="{% url 'product-details' p.Url %}"><i class="flaticon-shopping-bag"></i></a>
+                                                                </div>
+                                                                <span class="megasale">{{p.Discount}}%</span>
+                                                            </div>
+                                                            {% endif %}
+                                                            <div class="content-desc text-center">
+                                                                <h2 class="loop-product-title pt-15"><a href="{% url 'product-details' p.Url %}">{{p.Title}}</a>
+                                                                {% if p.Show_Price %}
+                                                                    <p class="price"><del style="color:grey;">${{p.Actual_Price}}</del> ${{p.Offer_Price}}</p>
+                                                                {% endif %}
+                                                                </h2>
+                                                                <!--<span class="price">$30.00</span>-->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Shop part end-->
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- .tab-area -->
+            </div>
+        </div>
+        <!-- Shop Single Start -->
+    </div>
+    <!-- Main content End -->
+    <!-- Footer Start -->
+    {% include 'fp/footer.html' %}
+    <!-- Footer End -->
+
+    <!-- start scrollUp  -->
+    <div id="scrollUp" class="orange-color">
+        <i class="fa fa-angle-up"></i>
+    </div>
+    <!-- End scrollUp  -->
+
+  
+    
+    
+    <!-- modal pop-up -->
+<div class="modal " id="get-quote" tabindex="-1" role="dialog" aria-labelledby="language" style="padding-right: 5px;">
+<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+<div class="modal-content">
+<button type="button" class="close_form" data-dismiss="modal" aria-label="Close"></button>
+<div class="modal-body" style="padding:0;">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 clearfix push-left">
+<form class="form-width " method="POST" id="form_submit_1">
+{% csrf_token %}
+
+        <h2 style="color:#3c479d; text-align:center; padding-top: 30px;">Join Us As A Volunteer!</h2>
+        
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 clearfix float-left">
+        <div class="log_set" style="margin-bottom:0px;">
+        <label style="color:#000;font-family: 'Source Sans Pro',sans-serif;">Name</label>
+        <input type="text" name="name" class="charonly" value="" placeholder="Enter your name" required="" style=" border:1px solid #ccc; padding: 0px 0px 0px 10px;">
+        </div>  
+        </div>  
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 clearfix float-left">
+        <div class="log_set" style="margin-bottom:0px;">
+        <label style="color:#000;font-family: 'Source Sans Pro',sans-serif;">Mobile No</label>
+        <input type="text" name="mobile" class="charonly" value="" placeholder="Enter your mobile" required="" style=" border:1px solid #ccc; padding: 0px 0px 0px 10px;">
+        </div>  
+        </div>         
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 clearfix float-left">
+        <div class="log_set" style="margin-bottom:0px;">
+        <label style="color:#000;font-family: 'Source Sans Pro',sans-serif;">Email</label>
+        <input type="email" name="email" value="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Enter your email" required="" style=" border:1px solid #ccc; padding: 0px 0px 0px 10px;">
+        </div>
+        </div>
+        <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 clearfix float-left">
+        <div class="log_set" style="margin-bottom:0px;">
+        <label style="color:#000;font-family: 'Source Sans Pro',sans-serif;">Whatsapp No</label>
+        <input type="text" name="whatsapp" value="" class="tel" placeholder="Enter your whatsapp number" required="" style=" border:1px solid #ccc; padding: 0px 0px 0px 10px;">
+        </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 clearfix float-left">
+        <div class="log_set" style="margin-bottom:0px;">
+        <label style="color:#000;font-family: 'Source Sans Pro',sans-serif;">District</label>
+        <input type="text" name="district" class="charonly" value="" placeholder="Enter your district" required="" style=" border:1px solid #ccc; padding: 0px 0px 0px 10px;">
+        </div>  
+        </div>  
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 clearfix float-left">
+        <div class="log_set" style="height:100%; margin-bottom:0px;">
+        <label style="color:#000;font-family: 'Source Sans Pro',sans-serif;">Address</label>
+        <textarea name="address" placeholder="Enter your address" style="height:53px!important; outline:none !important; border:1px solid #ccc; padding: 0px 0px 0px 10px; margin-bottom: 10px;"></textarea>
+        </div>
+        </div>                  
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 clearfix float-left"><button type="submit" name="btnSubmit" class="default-btn" style="width:20%; margin-left:auto; margin-right:auto; display: block; margin-bottom:15px;">SUBMIT</button></div>
+</form>   
+</div>
+<div class="col-md-6 clearfix push-left ml-imgs" style="padding:0;">
+ 
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+		<!-- //modal pop-up -->
+
+		<!-- //modal pop-up -->
+		 <script type="text/javascript" src="{% static 'fp/assets/js/aos.js' %}"></script>
+		<script>
+		    AOS.init({
+		        easing: 'ease-out-back',
+		        duration: 2000
+		    });
+		</script>
+		  
+		<script src="{% static 'fp/js/jquery.min.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+{% endblock content %}
+
+</html>

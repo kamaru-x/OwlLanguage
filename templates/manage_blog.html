@@ -1,0 +1,93 @@
+{% extends 'index.html' %}
+{% block header %}
+<div class="header bg-primary pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <h6 class="h2 text-white d-inline-block mb-0"></h6>
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+              <li class="breadcrumb-item"><a href="#">127.0.0.1</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Manage Blog</li>
+            </ol>
+          </nav>
+        </div>
+        {% if messages %}
+              {% for message in messages %}
+                <div class="alert alert-danger col-md-12" role="alert">
+                    {{message}} 
+                </div>
+              {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock header %}
+{% block content %}
+<div class="table-responsive">
+    <div class="text-center mt-5 mb-5">
+        <h1>Manage Blog</h1>
+    </div>
+    <table class="table align-items-center table-flush">
+      <thead class="thead-light">
+        <tr class="text-center">
+          <th scope="col" class="sort" data-sort="name">SI</th>
+          <th scope="col" class="sort" data-sort="budget">Blog Title</th>
+          <th scope="col" class="sort" data-sort="status">Thumbnail</th>
+          <th scope="col" class="sort" data-sort="completion"></th>
+          <th scope="col" class="sort" data-sort="completion"></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="list text-center">
+        {% for blog in blogs %}
+          <tr>
+            <td>{{forloop.counter}}</td> 
+            <td>{{blog.Title}}</td>
+            {% if blog.Image %}  
+              <td scope="row" class="align-items-center d-flex justify-content-center">
+                <div class="media align-items-center">
+                  <a href="#" class="avatar rounded-circle mr-3">
+                    <img style="height:-webkit-fill-available;" alt="" src="{{blog.Image.url}}">
+                  </a>
+                </div>
+              </td>
+            {% else %}
+              <td scope="row" class="align-items-center d-flex justify-content-center">
+                <div class="media align-items-center">
+                  <a href="#" class="avatar rounded-circle mr-3">
+                    <img style="height:-webkit-fill-available;" alt="" src="https://static.thenounproject.com/png/2222628-200.png">
+                  </a>
+                </div>
+              </td>
+            {% endif %}
+            <td>
+              <a href="{% url 'edit_blog' blog.id %}"><button class="btn btn-primary">Edit</button></a>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter-{{forloop.counter}}">Delete</button>
+            </td>
+            <td>
+              <div class="modal fade" id="exampleModalCenter-{{forloop.counter}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      do you want to delete the blog
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <a href="{% url 'remove_blog' blog.id %}"><button type="button" class="btn btn-danger">Delete</button></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock content %}

@@ -1,0 +1,185 @@
+{% extends 'index.html' %}
+{% block header %}
+<div class="header bg-primary pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <h6 class="h2 text-white d-inline-block mb-0"></h6>
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+              <li class="breadcrumb-item"><a href="#">127.0.0.1</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Manage Header Menu</li>
+            </ol>
+          </nav>
+          {% if messages %}
+              {% for message in messages %}
+                <div class="alert alert-success" role="alert">
+                    {{message}} 
+                </div>
+              {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock header %}
+{% block content %}
+    <main class="mx-5 mt-5">
+        <h1 class="text-center">MANAGE HEADER MENU</h1>
+        <form action="" method="post" enctype="multipart/form-data">
+        <div class="row mt-5 mb-5">
+          {% csrf_token %}
+
+
+            {% if manage.About_Page %}
+              <div class="col-md-3 text-center">
+                <label class="form-label">About Us</label>
+                <input type="checkbox" id="checkbox" checked value="True" name="about">
+              </div>
+            {% else %}
+            <div class="col-md-3 text-center">
+              <label class="form-label">About Us</label>
+              <input type="checkbox" id="checkbox" value="True" name="about">
+            </div>
+            {% endif %}
+
+
+            {% if manage.Blog_Page %}
+              <div class="col-md-3 text-center">
+                <label class="form-label">Blog</label>
+                <input type="checkbox" id="checkbox" checked value="True" name="blog">
+              </div>
+            {% else %}
+              <div class="col-md-3 text-center">
+                <label class="form-label">Blog</label>
+                <input type="checkbox" id="checkbox" value="True" name="blog">
+              </div>
+            {% endif %}
+
+
+            {% if manage.Image_Gallery %}
+              <div class="col-md-3 text-center">
+                <label class="form-label">Image Gallery</label>
+                <input type="checkbox" id="checkbox" checked value="True" name="gallery">
+              </div>
+            {% else %}
+              <div class="col-md-3 text-center">
+                <label class="form-label">Image Gallery</label>
+                <input type="checkbox" id="checkbox" value="True" name="gallery">
+              </div>
+            {% endif %}
+
+
+            {% if manage.Contact_Page %}
+              <div class="col-md-3 text-center">
+                <label class="form-label">Contact Us</label>
+                <input type="checkbox" id="checkbox" checked value="True" name="contact">
+              </div>
+            {% else %}
+              <div class="col-md-3 text-center">
+                <label class="form-label">Contact Us</label>
+                <input type="checkbox" id="checkbox" value="True" name="contact">
+              </div>
+            {% endif %}
+          </div>
+          <div class="row mt-5 mb-5 justify-content-around">
+
+
+            {% if manage.Products_Page %}
+              <div class="col-md-3 text-center">
+                <label class="form-label">Products</label>
+                <input type="checkbox" id="checkbox" checked value="True" name="products">
+              </div>
+            {% else %}
+              <div class="col-md-3 text-center">
+                <label class="form-label">Products</label>
+                <input type="checkbox" id="checkbox" value="True" name="products">
+              </div>
+            {% endif %}
+
+
+            {% if manage.Service_Page %}
+              <div class="col-md-3 text-center">
+                <label class="form-label">Services</label>
+                <input type="checkbox" id="checkbox" checked value="True" name="services">
+              </div>
+            {% else %}
+              <div class="col-md-3 text-center">
+                <label class="form-label">Services</label>
+                <input type="checkbox" id="checkbox" value="True" name="services">
+              </div>
+            {% endif %}
+
+
+            {% if manage.Testimonials %}
+              <div class="col-md-3 text-center">
+                <label class="form-label">Testimonials</label>
+                <input type="checkbox" id="checkbox" checked value="True" name="testimonials">
+              </div>
+            {% else %}
+              <div class="col-md-3 text-center">
+                <label class="form-label">Testimonials</label>
+                <input type="checkbox" id="checkbox" value="True" name="testimonials">
+              </div>
+            {% endif %}
+
+
+            {% if manage.Feedback_Page %}
+              <div class="col-md-3 text-center">
+                <label class="form-label">Feedback</label>
+                <input type="checkbox" id="checkbox" checked value="True" name="feedback">
+              </div>
+            {% else %}
+              <div class="col-md-3 text-center">
+                <label class="form-label">Feedback</label>
+                <input type="checkbox" id="checkbox" value="True" name="feedback">
+              </div>
+            {% endif %}
+
+          </div>
+          
+
+
+          <div class="row mt-5 mb-5 justify-content-around">
+
+
+            {% if manage.Enquiry_Page %}
+              <div class="col-md-3 text-center">
+                <label class="form-label">Enquiry</label>
+                <input type="checkbox" id="checkbox" checked value="True" name="enquiry">
+              </div>
+            {% else %}
+              <div class="col-md-3 text-center">
+                <label class="form-label">Enquiry</label>
+                <input type="checkbox" id="checkbox" value="True" name="enquiry">
+              </div>
+            {% endif %}
+
+
+            {% if manage.Group_Company %}
+              <div class="col-md-3 text-center">
+                <label class="form-label">Group Of Companies</label>
+                <input type="checkbox" id="checkbox" checked value="True" name="gop">
+              </div>
+            {% else %}
+              <div class="col-md-3 text-center">
+                <label class="form-label">Group Of Companies</label>
+                <input type="checkbox" id="checkbox" value="True" name="gop">
+              </div>
+            {% endif %}
+
+
+          </div>
+          <div class="row mb-4">
+            <div class="col-md-3"></div>
+            <div class="col d-flex justify-content-center">
+              <button type="submit" class="btn btn-primary btn-block">submit</button>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+      </form>
+    </main>
+{% endblock content %}

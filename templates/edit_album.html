@@ -1,0 +1,96 @@
+{% extends 'index.html' %}
+{% block header %}
+<div class="header bg-primary pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <h6 class="h2 text-white d-inline-block mb-0"></h6>
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+              <li class="breadcrumb-item"><a href="#">127.0.0.1</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Edit Album</li>
+            </ol>
+          </nav>
+          {% if messages %}
+              {% for message in messages %}
+                <div class="alert alert-success" role="alert">
+                    {{message}} 
+                </div>
+              {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock header %}
+{% block content %}
+    <div class="container">
+        <h1 class="text-center mt-5">EDIT ALBUM</h1>
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="row mt-5">
+                <div class="form-outline mb-4 col-md-6">
+                    <label class="form-label">Album Name</label>
+                    <input type="text" name="name" value="{{album.Title}}" class="form-control" />
+                </div>
+                <div class="form-outline mb-4 col-md-5">
+                  <label class="form-label">Album Thumbnail</label>
+                  <input multiple type="file" name="image" class="form-control" />
+              </div>
+              <div class="media align-items-center col-md-1">
+                <a href="" class="">
+                  <img width="75px" height="75px" alt="" src="{{album.Thumbnail.url}}">
+                </a>
+              </div>
+          </div>
+          
+          <div class="row mb-4">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 d-flex justify-content-center">
+              <button type="submit" class="btn btn-primary btn-block">submit</button>
+            </div>
+            <div class="col-md-4"></div>
+          </div>
+        </form>
+    </div>
+
+    <h1 class="text-center mt-5 mb-5">{{album.Title}}</h1>
+    <div class="row d-flex justify-content-around">
+        {% for image in images %}
+        <div class="col-md-3 mx-3">
+            <div class="card">
+                <img src="{{image.Image.url}}" class="card-img-top" alt="Fissure in Sandstone"/>
+                <div class="card-body text-center">
+                  <button class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter-{{forloop.counter}}">Delete</button>
+                </div>
+                <div class="modal fade" id="exampleModalCenter-{{forloop.counter}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body text-center">
+                        Do you want to delete the image ... ?
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <a href="{% url 'remove_image' album.id image.id %}"><button type="button" class="btn btn-danger">Delete</button></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- <div class="row">
+      <div class="col-md-12 text-center mb-5">
+          <a href="{% url 'manage_album' %}"><button class="btn btn-primary btn-lg">SAVE</button></a>
+      </div>
+    </div> -->
+{% endblock content %}

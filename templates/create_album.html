@@ -1,0 +1,76 @@
+{% extends 'index.html' %}
+{% block header %}
+<div class="header bg-primary pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <h6 class="h2 text-white d-inline-block mb-0"></h6>
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+              <li class="breadcrumb-item"><a href="#">127.0.0.1</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Create Album</li>
+            </ol>
+          </nav>
+          {% if messages %}
+              {% for message in messages %}
+                <div class="alert alert-success" role="alert">
+                    {{message}} 
+                </div>
+              {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock header %}
+{% block content %}
+    <main class="mx-5">
+        <div class="container-fluid p-5">
+            <div class="text-center">
+                <h1 class="mb-5">Create New Album</h1>
+            </div>
+            <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="row">
+                    <div class="form-outline mb-4 col-md-6">
+                        <label class="form-label">Album Title</label>
+                        <input required="True" type="text" name="title" class="form-control" />
+                    </div>
+                    <div class="form-outline mb-4 col-md-6">
+                        <label class="form-label">Album Thumbnail</label>
+                        <input required="True" type="file" name="image" class="form-control" />
+                    </div>
+              </div>
+              <div class="row">
+                <div class="form-outline mb-4 col-md-4">
+                    <label class="form-label">Url</label>
+                    <input required="True" type="text" name="url" class="form-control" />
+                </div>
+                <div class="form-outline mb-4 col-md-4">
+                    <label class="form-label">SEO Meta Title</label>
+                    <input type="text" name="smtitle" class="form-control" />
+                </div>
+                <div class="form-outline mb-4 col-md-4">
+                    <label class="form-label">SEO Meta Keywords</label>
+                    <input type="text" name="smkeywords" class="form-control" />
+                </div>
+              </div>
+              
+              
+              <div class="form-outline mb-4">
+                <label class="form-label">SEO Meta Description</label>
+                <textarea name="smdescription" id="" cols="30" rows="5" class="form-control"></textarea>
+              </div>
+              
+              <div class="row mb-4">
+                <div class="col d-flex justify-content-center">
+                  <button type="submit" class="btn btn-primary btn-block">submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+    </main>
+{% endblock content %}

@@ -1,0 +1,109 @@
+{% extends 'index.html' %}
+{% block header %}
+<div class="header bg-primary pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <h6 class="h2 text-white d-inline-block mb-0"></h6>
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+              <li class="breadcrumb-item"><a href="#">127.0.0.1</a></li>
+              <li class="breadcrumb-item active" aria-current="page">About Us</li>
+            </ol>
+          </nav>
+          {% if messages %}
+              {% for message in messages %}
+                <div class="alert alert-success" role="alert">
+                    {{message}} 
+                </div>
+              {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock header %}
+{% block content %}
+    <main class="mx-5">
+        <div class="container-fluid p-5">
+            <div class="text-center">
+                <h1>ABOUT US</h1>
+            </div>
+            <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              {{form.media}}
+              <div class="row">
+                    <div class="form-outline mb-4 col-md-6">
+                        <label class="form-label">Title</label>
+                        {{form.Title}}
+                    </div>
+                    <div class="form-outline mb-4 col-md-4">
+                        <label class="form-label">Image</label>
+                        {{form.Image}}
+                    </div>
+                    {% if about.Image %}
+                      <div class="media align-items-center col-md-1">
+                        <a href="" class="">
+                          <img width="65px" height="65px" alt="" src="{{about.Image.url}}">
+                        </a>
+                      </div>
+                      <div class="media align-items-center col-md-1">
+                        <a href="{% url 'remove_abt_img' about.id %}"><span class="badge badge-warning" style="margin-top:-42px; margin-left:-38px; position: absolute;">X</span></a>
+                      </div>
+                    {% endif %}
+              </div>
+              <div class="form-outline mb-4 text-center">
+                <label class="form-label">Description</label>
+                <div class="text-center">
+                    {{form.Description}}
+                </div>
+              </div>
+
+              
+                <div class="form-outline mb-4 text-center">
+                  <label class="form-label">Mission</label>
+                  <div class="text-center">
+                      {{form.Mission}}
+                  </div>
+                </div>
+                <div class="form-outline mb-4 text-center">
+                  <label class="form-label">Vision</label>
+                  <div class="text-center">
+                      {{form.Vision}}
+                  </div>
+                </div>
+              
+
+              <div class="row">
+                <div class="form-outline mb-4 col-md-4">
+                    <label class="form-label">Url</label>
+                    {{form.Url}}
+                </div>
+                <div class="form-outline mb-4 col-md-4">
+                    <label class="form-label">SEO Meta Title</label>
+                    {{form.SMTitle}}
+                </div>
+                <div class="form-outline mb-4 col-md-4">
+                    <label class="form-label">SEO Meta Keywords</label>
+                    {{form.SMKeywords}}
+                </div>
+              </div>
+              
+              
+              <div class="form-outline mb-4">
+                <label class="form-label">SEO Meta Description</label>
+                {{form.SMDescription}}
+              </div>
+              
+              <div class="row mb-4">
+                <div class="col d-flex justify-content-center">
+                  <button type="submit" class="btn btn-primary btn-block">submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+    </main>
+{% endblock content %}

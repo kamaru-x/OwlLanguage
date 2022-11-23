@@ -1,0 +1,115 @@
+{% extends 'fp/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <!-- meta tag -->
+    <meta charset="utf-8">
+    <title>Darktrace Consulting</title>
+    <meta name="description" content="">
+    <!-- responsive tag -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+{% block content %}
+
+<body class="defult-home">
+
+    <div class="offwrap"></div>
+
+    <!--Preloader start here-->
+    <div id="pre-load">
+        <div id="loader" class="loader">
+            <div class="loader-container">
+                <div class='loader-icon'><img src="assets/images/fav.png" alt="Darktrace Consulting"></div>
+            </div>
+        </div>
+    </div>
+    <!--Preloader area end here-->
+
+    <!-- Main content Start -->
+    <div class="main-content">
+
+        <!--Full width header Start-->
+        {% include 'fp/header.html' %}
+        <!--Full width header End-->
+
+        <!-- Breadcrumbs Start -->
+        <div class="rs-breadcrumbs img1">
+            <div class="container">
+                <div class="breadcrumbs-inner">
+                    <h1 class="page-title">
+                        Gallery
+                        <span class="watermark">Gallery</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumbs End -->
+
+        <!-- Team Start -->
+        <div id="rs-team" class="rs-team style2 pt-100 pb-100 md-pt-70 md-pb-70">
+            <div class="container">
+                <div class="row">
+                {% for album in albums %}    
+                    <div class="col-lg-4 col-md-6 mb-30">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <a href="{% url 'album-page' album.id %}"><img src="{{album.Thumbnail.url}}" alt=""></a>
+                            </div>
+                            <div class="team-content">
+                                <div class="team-info">
+                                    <div class="name">
+                                        <a href="{% url 'album-page' album.id %}">{{album.Title}}</a>
+                                    </div>
+                                   
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}    
+                </div>
+            </div>
+        </div>
+        <!-- Team end -->
+
+    </div>
+    <!-- Main content End -->
+
+    <!-- Footer Start -->
+    {% include 'fp/footer.html' %}
+    <!-- Footer End -->
+
+    <!-- start scrollUp  -->
+    <div id="scrollUp" class="orange-color">
+        <i class="fa fa-angle-up"></i>
+    </div>
+    <!-- End scrollUp  -->
+
+    <!-- Search Modal Start -->
+    <div class="modal fade search-modal" id="searchModal" tabindex="-1">
+        <button type="button" class="close" data-bs-dismiss="modal">
+            <span class="flaticon-cross"></span>
+        </button>
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="search-block clearfix">
+                    <form>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Search Here..." type="text">
+                            <button type="submit" value="Search"><i class="flaticon-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Search Modal End -->
+</body>
+
+{% endblock content %}
+
+</html>

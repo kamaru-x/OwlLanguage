@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+{% block header %}
+<div class="header bg-primary pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <h6 class="h2 text-white d-inline-block mb-0"></h6>
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+              <li class="breadcrumb-item"><a href="#">127.0.0.1</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Album</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock header %}
+{% block content %}
+    <main class="mx-5 mt-5 mb-3">
+        <h1 class="text-center">{{album.Title}}</h1>
+        <div class="row">
+            <div class="col-md-3">
+                <a href="">
+                    <img width="200px" height="200px" src="{{album.Thumbnail.url}}" alt="">
+                </a>
+                <p>{{image.Title}}</p>
+            </div>
+        </div>
+        <div class="create mt-5 text-center">
+            <a href="">
+                <button class="btn btn-primary btn-lg">Add new image</button>
+            </a>
+            <a href="">
+                <button class="btn btn-primary btn-lg">Manage Album</button>
+            </a>
+        </div>
+    </main>
+{% endblock content %}

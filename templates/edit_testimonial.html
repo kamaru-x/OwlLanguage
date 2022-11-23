@@ -1,0 +1,80 @@
+{% extends 'index.html' %}
+{% block header %}
+<div class="header bg-primary pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <h6 class="h2 text-white d-inline-block mb-0"></h6>
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+              <li class="breadcrumb-item"><a href="#">127.0.0.1</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Edit Testimonial</li>
+            </ol>
+          </nav>
+          {% if messages %}
+              {% for message in messages %}
+                <div class="alert alert-success" role="alert">
+                    {{message}} 
+                </div>
+              {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock header %}
+{% block content %}
+    <main class="mx-5">
+        <div class="container-fluid p-5">
+            <div class="text-center">
+                <h1>EDIT TESTIMONIAL</h1>
+            </div>
+            <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="row mt-3">
+                    <div class="form-outline mb-4 col-md-6">
+                        <label class="form-label">Name</label>
+                        <input required="True" type="text" value="{{tes.Tes_Name}}" name="name" class="form-control" />
+                    </div>
+                    <div class="form-outline mb-4 col-md-6">
+                        <label class="form-label">Designation</label>
+                        <input required="True" type="text" value="{{tes.Designation}}" name="designation" class="form-control" />
+                    </div>
+              </div>
+              <div class="row border-info">
+                <div class="form-outline mb-4 col-md-6">
+                    <label class="form-label">Company Name</label>
+                    <input type="text" name="cname" value="{{tes.Company_Name}}" class="form-control" />
+                </div>
+                <div class="form-outline mb-4 col-md-4">
+                    <label class="form-label">Image</label>
+                    <input type="file" name="image" class="form-control" />
+                </div>
+                {% if tes.Tes_Image %}
+                      <div class="media align-items-center col-md-1">
+                        <a href="#" class="">
+                          <img width="65px" height="65px" alt="" src="{{tes.Tes_Image.url}}">
+                        </a>
+                      </div>
+                      <div class="media align-items-center col-md-1">
+                        <a href="{% url 'remove_tes_img' tes.id %}"><span class="badge badge-warning" style="margin-top:-42px; margin-left:-38px; position: absolute;">X</span></a>
+                      </div>
+                {% endif %} 
+              </div>              
+              <div class="form-outline mb-4">
+                <label class="form-label">Testimonial</label>
+                <textarea required="True" name="testimonial" id="" cols="30" rows="5" class="form-control">{{tes.Testimonial}}</textarea>
+              </div>
+              
+              <div class="row mb-4">
+                <div class="col d-flex justify-content-center">
+                  <button type="submit" class="btn btn-primary btn-block">submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+    </main>
+{% endblock content %}

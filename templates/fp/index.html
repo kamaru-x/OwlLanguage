@@ -1,0 +1,378 @@
+{% extends 'fp/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <!-- meta tag -->
+    <meta charset="utf-8">
+    <title>Darktrace-Consulting</title>
+    <meta name="description" content="">
+    <!-- responsive tag -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+{% block content %}
+
+<body class="defult-home">
+    <div class="offwrap"></div>
+
+    <!--Preloader start here-->
+    <div id="pre-load">
+        <div id="loader" class="loader">
+            <div class="loader-container">
+                <div class='loader-icon'><img src="{% static 'fp/assets/images/fav.png' %}" alt="Darktrace Consulting"></div>
+            </div>
+        </div>
+    </div>
+    <!--Preloader area end here-->
+
+    <!-- Main content Start -->
+    <div class="main-content">
+
+
+        <!--Full width header Start-->
+        {% include 'fp/header.html' %}
+        <!--Full width header End-->
+
+        <!-- Slider Start -->
+        <div id="rs-slider" class="rs-slider slider3">
+            <div class="bend niceties">
+                <div id="nivoSlider" class="slides">
+                    <img src="{{bnr1.Banner_Image.url}}" alt="" title="#slide-1" />
+                    <img src="{{bnr2.Banner_Image.url}}" alt="" title="#slide-2" />
+                    <img src="{{bnr2.Banner_Image.url}}" alt="" title="#slide-2" />
+                </div>
+                <!-- Slide 1 -->
+                <div id="slide-1" class="slider-direction">
+                    <div class="content-part">
+                        <div class="container"><br><br>
+                            <div class="slider-des">
+                                <!--<div class="sl-subtitle">Sustainable Finance</div>-->
+                                <h1 class="sl-title">{{bnr1.Caption}}</h1>
+                            </div>
+                            <div class="desc">{{bnr1.Sub_Caption}} </div>
+                            <div class="slider-bottom ">
+                                <a class="readon consultant slider" href="{{bnr1.Link}}">{{bnr1.Button_Label}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div id="slide-2" class="slider-direction">
+                    <div class="content-part">
+                        <div class="container"><br><br>
+                            <div class="slider-des">
+                                <h1 class="sl-title">{{bnr2.Caption}}</h1>
+                            </div>
+                            <div class="desc">{{bnr2.Sub_Caption}}</div>
+                            <div class="slider-bottom ">
+                                <a class="readon consultant" href="{{bnr2.Link}}">{{bnr2.Button_Label}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Slider End -->
+
+          <!-- About Section Start -->
+            <div class="rs-about main-home bg1 pt-110 pb-110 md-pt-70 md-pb-65">
+                <div class="container">
+                    <div class="row y-middle">
+                        {% if about.Image %}
+                        <div class="col-lg-6 md-mb-50">
+                            <div class="images-part">
+                                <img src="{{about.Image.url}}" alt="Images">
+                            </div>
+                        </div>
+                        {% endif %}
+                        <div class="col-lg-6 pl-60 md-pl-15">
+                            <div class="sec-title">
+                                <h2 class="title pb-30">
+                                    {{about.Title}}
+                                </h2>
+                                <!-- <span class="sub-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. </span> -->
+
+                                <p class="margin-0" style="text-align: justify;">{{about.Description|safe}}</p>
+                                <div class="btn-part mt-45">
+                                    <a class="readon consultant discover" href="{% url 'about-page' %}">About Us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- About Section End -->
+            <!-- Partner Section Start -->
+            {% if gof %}
+                <div class="rs-patter-section style1 pt-75 pb-75" style="background-color: #000;">
+                    <div class="container custom">
+                        <div class="sec-title3 text-center mb-35">
+                                <span class="sub-title"></span>
+                                <h2 class="title pb-25" style="color:#fff;">
+                                Our Clients
+                                </h2>
+                                <div class="heading-border-line"></div>
+                            </div>
+                        <div class="rs-carousel owl-carousel" data-loop="true" data-items="5" data-margin="30"
+                            data-autoplay="true" data-hoverpause="true" data-autoplay-timeout="5000" data-smart-speed="800"
+                            data-dots="false" data-nav="false" data-nav-speed="false" data-md-device="5"
+                            data-md-device-nav="false" data-md-device-dots="false" data-center-mode="false"
+                            data-ipad-device2="4" data-ipad-device-nav2="false" data-ipad-device-dots2="true"
+                            data-ipad-device="3" data-ipad-device-nav="false" data-ipad-device-dots="false"
+                            data-mobile-device="2" data-mobile-device-nav="false" data-mobile-device-dots="false">
+                            {% for image in gof %}
+                            <div class="logo-img">
+                                <a href="#">
+                                    <img class="hovers-logos rs-grid-img" src="{{image.Logo.url}}"
+                                        title="" alt="">
+                                    <img class="mains-logos rs-grid-img " src="{{image.Logo.url}}"
+                                        title="" alt="">
+                                </a>
+                            </div>
+                            {% endfor %}   
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            <!-- Partner Section End -->
+        </div>
+
+
+        <style>
+            
+        </style>
+         <!-- Premium Services Section Start -->
+        {% if fs %}
+            <div id="rs-services" class="rs-services style2 gray-bg pt-100 pb-100 md-pt-70 md-pb-70">
+                <div class="container">
+                    <div class="row y-middle">
+                            <div class="col-lg-5">
+                            <div class="sec-title mb-50 md-mb-35">
+                                <h2 class="title">
+                                    Our Services
+                                </h2>
+                            </div>
+                            </div>
+                            <div class="col-lg-7 text-right md-left">
+                                <div class="btn-part mb-90 md-mb-50">
+                                    <a class="readon consultant discover" href="{% url 'service-page' %}">View Services</a>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="rs-carousel owl-carousel" data-loop="true" data-items="3" data-margin="30"
+                        data-autoplay="true" data-hoverpause="true" data-autoplay-timeout="5000" data-smart-speed="800"
+                        data-dots="true" data-nav="false" data-nav-speed="false" data-md-device="3"
+                        data-md-device-nav="false" data-md-device-dots="true" data-center-mode="false" data-ipad-device2="2"
+                        data-ipad-device-nav2="false" data-ipad-device-dots2="true" data-ipad-device="2"
+                        data-ipad-device-nav="false" data-ipad-device-dots="true" data-mobile-device="1"
+                        data-mobile-device-nav="false" data-mobile-device-dots="true">
+                    {% for s in fs %}    
+                        <div class="service-wrap">
+                            <a href="{% url 'service-details' s.Url %}">
+                                {% if s.Image %}
+                                    <div class="image-part">
+                                    <img src="{{s.Image.url}}" alt="">
+                                    </div>
+                                {% endif %}
+                            </a>
+                            <div class="content-part">
+                                <h3 class="title"><a href="{% url 'service-details' s.Url %}">{{s.Title}}</a>
+                                {% if s.Show_Price %}
+                                    <p class="price"><del style="color:grey;">${{s.Actual_Price}}</del> ${{s.Offer_Price}}</p>
+                                {% endif %}
+                                </h3>
+                                <div class="desc">{{s.Description|slice:":100"}}</div>
+                            </div>
+                        </div>
+                    {% endfor %}    
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <!-- Premium Services Section End -->
+        
+        <style>
+        .price{
+        float:right;
+        color: #bb0b0b;
+        font-size: 15px;
+        }
+        </style>
+
+        <!-- Team Section Start -->
+        {% if fp %}
+            <div class="rs-team style1 bg4 pt-100 pb-100 md-pt-70 md-pb-70">
+                <div class="container">
+                    <div class="row y-middle">
+                        <div class="col-lg-5">
+                           <div class="sec-title mb-50 md-mb-35">
+                               <h2 class="title white-color">
+                                   Our Products
+                               </h2>
+                           </div>
+                        </div>
+                        <div class="col-lg-7 text-right md-left">
+                            <div class="btn-part mb-90 md-mb-50">
+                                <a class="readon consultant discover" href="{% url 'product-page' %}">View Products</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rs-carousel owl-carousel" 
+                        data-loop="true" 
+                        data-items="3" 
+                        data-margin="30" 
+                        data-autoplay="true" 
+                        data-hoverpause="true" 
+                        data-autoplay-timeout="5000" 
+                        data-smart-speed="800" 
+                        data-dots="true" 
+                        data-nav="false" 
+                        data-nav-speed="false" 
+
+                        data-md-device="3" 
+                        data-md-device-nav="false" 
+                        data-md-device-dots="true" 
+                        data-center-mode="false"
+
+                        data-ipad-device2="2" 
+                        data-ipad-device-nav2="false" 
+                        data-ipad-device-dots2="true"
+
+                        data-ipad-device="2" 
+                        data-ipad-device-nav="false" 
+                        data-ipad-device-dots="true" 
+
+                        data-mobile-device="1" 
+                        data-mobile-device-nav="false" 
+                        data-mobile-device-dots="true"> 
+                    {% for p in fp %}    
+                        <div class="team-wrap">
+                            {% if p.Image %}
+                            <div class="image-wrap">
+                                <a href="{% url 'product-details' p.Url %}">
+                                    <img src="{{p.Image.url}}" alt="Team">
+                                </a>    
+                            </div>
+                            {% endif %}
+                            <div class="team-content">
+                                <h3 class="team-name"><a href="{% url 'product-details' p.Url %}">{{p.Title}}</a>
+                                {% if p.Show_Price %}
+                                    <p class="price"><del style="color:grey;">${{p.Actual_Price}}</del> ${{p.Offer_Price}}</p>
+                                {% endif %}
+                                </h3>    
+                            </div>
+                        </div>
+                    {% endfor %}   
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+            <!-- Team Section Start -->
+
+          
+
+         <!-- Testimonial Section Start -->
+        {% if testimonials %}
+            <div class="rs-testimonial style4 home4-testi-style bg22">
+                <div class="testimonial-overly-bg pt-95 pb-100 md-pt-65 md-pb-70">
+                    <div class="container custom">
+                        <div class="sec-title3 text-center mb-35">
+                            <span class="sub-title"></span>
+                            <h2 class="title pb-25">
+                               Customers Reviews
+                            </h2>
+                            <div class="heading-border-line"></div>
+                        </div>
+                        <div class="rs-carousel owl-carousel" data-loop="true" data-items="3" data-margin="30" data-autoplay="true" data-hoverpause="true" data-autoplay-timeout="5000" data-smart-speed="800" data-dots="false" data-nav="false" data-nav-speed="false" data-center-mode="false" data-mobile-device="1" data-mobile-device-nav="false" data-mobile-device-dots="true" data-ipad-device="2" data-ipad-device-nav="false" data-ipad-device-dots="true" data-ipad-device2="2" data-ipad-device-nav2="false" data-ipad-device-dots2="true" data-md-device="3" data-md-device-nav="false" data-md-device-dots="true">
+                        {% for testimonial in testimonials %}    
+                            <div class="testi-item">
+                                <div class="testi-wrap">
+                                    {% if testimonial.Tes_Image %}
+                                        <div class="image-wrap">
+                                            <img src="{{testimonial.Tes_Image.url}}" alt="Testimonial">
+                                        </div>
+                                    {% endif %}
+                                    <div class="item-contents">
+                                        <p>{{testimonial.Testimonial|slice:':100'}}</p>
+                                    </div>
+                                    <div class="testi-information">
+                                        <div class="testi-name">{{testimonial.Tes_Name}}</div>
+                                        <span class="testi-title">{{testimonial.Designation}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+            <!-- Testimonial Section End -->
+
+            <!-- Blog Section Start -->
+        {% if blogs %}
+            <div id="rs-blog" class="rs-blog blog-main-home bg7 pt-100 pb-100 md-pt-70 md-pb-70">
+                <div class="container">  
+                    <div class="sec-title text-center mb-60 md-mb-40">
+                        <h2 class="title title2">
+                            Our Blogs & News
+                        </h2>
+                    </div>
+                    <div class="rs-carousel owl-carousel" data-loop="true" data-items="3" data-margin="30" data-autoplay="true" data-hoverpause="true" data-autoplay-timeout="5000" data-smart-speed="800" data-dots="true" data-nav="false" data-nav-speed="false" data-center-mode="false" data-mobile-device="1" data-mobile-device-nav="false" data-mobile-device-dots="true" data-ipad-device="2" data-ipad-device-nav="false" data-ipad-device-dots="true" data-ipad-device2="2" data-ipad-device-nav2="false" data-ipad-device-dots2="true" data-md-device="3" data-md-device-nav="false" data-md-device-dots="true">
+                        {% for blog in blogs %}
+                        <div class="blog-item">
+                            {% if blog.Image %}
+                            <div class="image-wrap">
+                                <a href="{% url 'blog-detailed' blog.Url %}"><img src="{{blog.Image.url}}" alt="Blog"></a>
+                            </div>
+                            {% endif %}
+                            <div class="blog-content">
+                               <ul class="blog-meta">
+                                   <li class="date">{{blog.Date}}</li>
+                                   <li class="admin"><a href="{% url 'blog-detailed' blog.Url %}"></a></li>
+                               </ul>
+                               <h3 class="blog-title"><a href="{% url 'blog-detailed' blog.Url %}">{{blog.Title}}</a></h3>
+                               <p class="desc">{{blog.Description | slice:":100"}}</p>
+                               <div class="blog-btn">
+                                    <a class="readon consultant blog" href="{% url 'blog-detailed' blog.Url %}">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                     </div>
+                </div>
+            </div>
+        {% endif %}
+            <!-- Blog Section End -->
+
+    <!-- Footer Start -->
+    {% include 'fp/footer.html' %}
+    <!-- Footer End -->
+
+    <!-- start scrollUp  -->
+    <div id="scrollUp" class="orange-color">
+        <i class="fa fa-angle-up"></i>
+    </div>
+    <!-- End scrollUp  -->
+
+    <!-- Search Modal Start -->
+    <div class="modal fade search-modal" id="searchModal" tabindex="-1">
+        <button type="button" class="close" data-bs-dismiss="modal">
+            <span class="flaticon-cross"></span>
+        </button>
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="search-block clearfix">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Search Modal End -->
+</body>
+
+{% endblock content %}
+
+</html>
