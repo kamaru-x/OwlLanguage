@@ -412,13 +412,20 @@ def change_color(request):
         ip = request.META.get('REMOTE_ADDR')
 
     if request.method == 'POST' :
-        color.Primary = request.POST.get('primary')
-        color.Secondary = request.POST.get('secondary')
-        color.EditedBy = user
-        color.EditedIp = ip
-        color.Edited_Date = datetime.now()
-        color.save()
-        return redirect('/admin/theme')
+        if color:
+            color.Primary = request.POST.get('primary')
+            color.Secondary = request.POST.get('secondary')
+            color.EditedBy = user
+            color.EditedIp = ip
+            color.Edited_Date = datetime.now()
+            color.save()
+            return redirect('/admin/theme')
+        else:
+            primary = request.POST.get('primary')
+            secondary = request.POST.get('secondary')
+            data = Theme(Primary=primary,Secondary=secondary,EditedBy=user,EditedIp=ip,Edited_Date=datetime.now())
+            data.save()
+    
     context ={
         'color' : color,
         'manage' : manage

@@ -14,6 +14,7 @@ def homepage(request):
     blogs = Blog.objects.filter(Status=1).order_by('-id')[:3]
     testimonial = Testimonial.objects.filter(Status=1)
     goc = Group_Of_Companies.objects.filter(Status=1)
+    color = Theme.objects.last()
     context = {
         'manage' : manage,
         'quick' : quick,
@@ -25,6 +26,7 @@ def homepage(request):
         'blogs' : blogs,
         'testimonials' : testimonial,
         'goc' : goc,
+        'color' : color
     }
     return render(request,'fp/index.html',context)
 
@@ -36,12 +38,14 @@ def header(request):
     products = Product.objects.filter(Status=1)
     services = Service.objects.filter(Status=1)
     contact = Contact.objects.last()
+    color = Theme.objects.last()
     context = {
         'manage' : manage,
         'quick' : quick,
         'products' : products,
         'services' : services,
         'contact' : contact,
+        'color' : color
     }
     return render(request,'fp/header.html',context)
 
@@ -50,15 +54,17 @@ def header(request):
 def footer(request):
     manage = Manage_Menu.objects.last()
     quick = Quick_Links.objects.last()
-    products = Product.objects.filter(Status=1)
-    services = Service.objects.filter(Status=1)
+    products = Product.objects.filter(Status=1).filter(Show_Feature=1)
+    services = Service.objects.filter(Status=1).filter(Show_Feature=1)
     contact = Contact.objects.last()
+    color = Theme.objects.last()
     context = {
         'manage' : manage,
         'quick' : quick,
         'products' : products,
         'services' : services,
         'contact' : contact,
+        'color' : color
     }
     return render(request,'fp/footer.html',context)
 
@@ -71,13 +77,15 @@ def about_page(request):
     services = Service.objects.filter(Status=1)
     contact = Contact.objects.last()
     about = About.objects.last()
+    color = Theme.objects.last()
     context = {
         'manage' : manage,
         'quick' : quick,
         'products' : products,
         'services' : services,
         'contact' : contact,
-        'about' : about
+        'about' : about,
+        'color' : color
     }
     return render(request,'fp/about.html',context)
 
@@ -90,13 +98,15 @@ def albums_page(request,id):
     services = Service.objects.filter(Status=1)
     contact = Contact.objects.last()
     images = Album_Image.objects.filter(Album_Name=id).filter(Status=1)
+    color = Theme.objects.last()
     context = {
         'manage' : manage,
         'quick' : quick,
         'products' : products,
         'services' : services,
         'contact' : contact,
-        'images' : images
+        'images' : images,
+        'color' : color
     }
     return render(request,'fp/album.html',context)
 
@@ -109,6 +119,7 @@ def gallery_page(request):
     services = Service.objects.filter(Status=1)
     contact = Contact.objects.last()
     albums = Album.objects.filter(Status=1)
+    color = Theme.objects.last()
     context = {
         'manage' : manage,
         'quick' : quick,
@@ -116,6 +127,7 @@ def gallery_page(request):
         'services' : services,
         'contact' : contact,
         'albums' : albums,
+        'color' : color
     }
     return render(request,'fp/gallery.html',context)
 
@@ -128,6 +140,7 @@ def blogs_page(request):
     services = Service.objects.filter(Status=1)
     contact = Contact.objects.last()
     blogs = Blog.objects.filter(Status=1)
+    color = Theme.objects.last()
     context = {
         'manage' : manage,
         'quick' : quick,
@@ -135,6 +148,7 @@ def blogs_page(request):
         'services' : services,
         'contact' : contact,
         'blogs' : blogs,
+        'color' : color
     }
     return render(request,'fp/blog.html',context)
 
@@ -147,6 +161,7 @@ def blog_details(request,url):
     services = Service.objects.filter(Status=1)
     contact = Contact.objects.last()
     blog = Blog.objects.get(Url=url)
+    color = Theme.objects.last()
 
     context = {
         'manage' : manage,
@@ -155,6 +170,7 @@ def blog_details(request,url):
         'services' : services,
         'contact' : contact,
         'blog' : blog,
+        'color' : color
     }
     return render(request,'fp/blog-single.html',context)
 
@@ -166,12 +182,14 @@ def contact_page(request):
     products = Product.objects.filter(Status=1)
     services = Service.objects.filter(Status=1)
     contact = Contact.objects.last()
+    color = Theme.objects.last()
     context = {
         'manage' : manage,
         'quick' : quick,
         'products' : products,
         'services' : services,
         'contact' : contact,
+        'color' : color
     }
     return render(request,'fp/contact.html',context)
 
@@ -183,12 +201,14 @@ def products_page(request):
     products = Product.objects.filter(Status=1)
     services = Service.objects.filter(Status=1)
     contact = Contact.objects.last()
+    color = Theme.objects.last()
     context = {
         'manage' : manage,
         'quick' : quick,
         'products' : products,
         'services' : services,
         'contact' : contact,
+        'color' : color
     }
     return render(request,'fp/products.html',context)
 
@@ -201,6 +221,7 @@ def product_single(request,url):
     services = Service.objects.filter(Status=1)
     contact = Contact.objects.last()
     product = Product.objects.get(Url=url)
+    color = Theme.objects.last()
 
     if request.method == 'POST' :
         name = request.POST.get('name')
@@ -227,6 +248,7 @@ def product_single(request,url):
         'services' : services,
         'contact' : contact,
         'product' : product,
+        'color' : color
     }
     return render(request,'fp/products-single.html',context)
 
@@ -238,12 +260,14 @@ def services_page(request):
     products = Product.objects.filter(Status=1)
     services = Service.objects.filter(Status=1)
     contact = Contact.objects.last()
+    color = Theme.objects.last()
     context = {
         'manage' : manage,
         'quick' : quick,
         'products' : products,
         'services' : services,
         'contact' : contact,
+        'color' : color
     }
     return render(request,'fp/service.html',context)
 
@@ -256,6 +280,7 @@ def service_details(request,url):
     services = Service.objects.filter(Status=1)
     contact = Contact.objects.last()
     service = Service.objects.get(Url=url)
+    color = Theme.objects.last()
 
     if request.method == 'POST' :
         name = request.POST.get('name')
@@ -282,5 +307,6 @@ def service_details(request,url):
         'services' : services,
         'contact' : contact,
         'service' : service,
+        'color' : color
     }
     return render(request,'fp/service-single.html',context)

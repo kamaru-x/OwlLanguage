@@ -41,7 +41,10 @@ def services(request):
             else:
                 pass
 
-        discount = (int(actual_price) - int(offer_price)) / int(actual_price) * 100
+        if actual_price and offer_price :
+            discount = (int(actual_price) - int(offer_price)) / int(actual_price) * 100
+        else:
+            discount = 0
 
         user = request.user.id
 

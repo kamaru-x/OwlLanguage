@@ -41,7 +41,9 @@
             <div class="footer-link">
               <h6 class="text-white mb-3 mb-md-4">Services</h6>
               <ul class="list-unstyled">
-                <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Service1</a></li>
+                {% for service in services %}
+                  <li><a href="{% url 'service-details' service.Url %}"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>{{service.Title}}</a></li>
+                {% endfor %}
               </ul>
             </div>
           </div>
@@ -52,7 +54,9 @@
             <div class="footer-link">
               <h6 class="text-white mb-3 mb-md-4">Products</h6>
               <ul class="list-unstyled">
-                <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Product1</a></li>
+                {% for product in products %}
+                  <li><a href="{% url 'product-details' product.Url %}"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>{{product.Title}}</a></li>
+                {% endfor %}
               </ul>
             </div>
           </div>
@@ -63,8 +67,8 @@
             <div class="footer-link">
               <h6 class="text-white mb-3 mb-md-4">Contact</h6>
               <p>{{contact.Adress}}<br>
-              Telephone : <a href="tel:123-345-6789">{{contact.Mobile}}</a><br>
-              Email : <a href="mailto:letstalk@gmail.com">{{contact.Email}}</a></p>
+              Telephone : <a href="tel:{{contact.Mobile}}">{{contact.Mobile}}</a><br>
+              Email : <a href="mailto:{{contact.Email}}">{{contact.Email}}</a></p>
             </div>
           </div>
         {% endif %}
@@ -79,6 +83,7 @@
     </div>
     <div class="footer-bottom">
       <div class="container">
+        <input type="text" disabled display="none" style="background-color:transparent; border: none; color: transparent;" id="theme" value="{{color.Primary}}">
         <div class="row">
           <div class="col-md-6">
             <p class="mb-0 text-white"> &copy; Copyright <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span> <a href="{% url 'home-page' %}"> {{contact.Company_Name}} </a> All Rights Reserved </p>
@@ -87,6 +92,7 @@
             Designed by <a href="#">Weblanza</a>
           </div>
         </div>
+        <input type="text" disabled display="none" style="background-color:transparent; border: none; color: transparent;" id="theme2" value="{{color.Secondary}}">
       </div>
     </div>
   </footer>
