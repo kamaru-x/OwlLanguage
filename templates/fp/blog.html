@@ -33,25 +33,38 @@
     <!--=================Inner Header================ -->
 
     <!--=================Case Study================ -->
+    {% if blogs %}
     <section class="space-ptb case-study">
         <div class="container">
             <div class="row">
-                
+                {% for blog in blogs %}
                 <div class="col-lg-4 col-sm-6 pb-2 mb-4">
-                    <a href="{% url 'blog-details' %}"><div class="case-study-item">
+                    <a href="{% url 'blog-details' blog.Url %}"><div class="case-study-item">
+                        {% if blog.Image %}
                         <div class="case-study-img">
-                            <img class="img-fluid" src="{% static 'fp/images/blog/02.jpg' %}" alt="">
+                            <img class="img-fluid" src="{{blog.Image.url}}" alt="">
                             <!--<a href="blog-single.php"><i class="fas fa-long-arrow-alt-right"></i></a>-->
                         </div>
+                        {% endif %}
                         <div class="case-study-info">
                             <!--<a class="case-study-category" href="blog-single.php">Energy & Environment</a>-->
-                            <h6 class="case-study-title"><a href="{% url 'blog-details' %}">All the Lorem Ipsum generators on the Internet...</a></h6>
+                            <h6 class="case-study-title"><a href="{% url 'blog-details' blog.Url %}">{{blog.Description|slice:':100'}}</a></h6>
                         </div>
                     </div></a>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </section>
+    {% else %}
+    <section class="space-ptb case-study">
+        <div class="container">
+            <div class="row">
+                <h1>No blogs available</h1>
+            </div>
+        </div>
+    </section>
+    {% endif %}
     <!--=================================
   Case Study -->
 

@@ -34,30 +34,54 @@
     <!--===================Inner Header============== -->
 
     <!--===================Grid Right Sidebar============== -->
+    {% if services %}
+
     <section class="space-ptb">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-xl-12 order-md-2 order-1">
                     <div class="row">
-                        
+                        {% for service in services %}
                         <div class="col-sm-4 col-md-4 col-lg-4 mb-4 pb-2">
-                            <a href="{% url 'service-details' %}"><div class="service-item">
+                            <a href="{% url 'service-details' service.Url %}"><div class="service-item">
+                                {% if service.Image %}
                                 <div class="service-img">
-                                    <img class="img-fluid" src="{% static 'fp/images/service/02.jpg' %}" alt="">
+                                    <img class="img-fluid" src="{{service.Image.url}}" alt="">
                                     <!--<a href="service-single.html"><i class="fas fa-long-arrow-alt-right"></i></a>-->
                                 </div>
+                                {% endif %}
                                 <div class="service-info">
-                                    <h6 class="service-info-title"><a href="{% url 'service-details' %}">Competition analysis</a>
-                                    <p class="price"><del style="color:red;">$99</del>&nbsp $49</p></h6>
+                                    <h6 class="service-info-title"><a href="{% url 'service-details' service.Url %}">{{service.Title}}</a>
+                                    {% if service.Show_Price %}
+                                    <p class="price"><del style="color:red;">${{service.Actual_Price}}</del>&nbsp ${{service.Offer_Price}}</p></h6>
+                                    {% endif %}
                                 </div>
                             </div></a>
                         </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
         </div>
         </div>
     </section>
+
+    {% else %}
+
+    <section class="space-ptb">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-xl-12 order-md-2 order-1">
+                    <div class="row">
+                        <h1>No services availabe</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    {% endif %}
     <!--=====================Grid Right Sidebar============ -->
 
   

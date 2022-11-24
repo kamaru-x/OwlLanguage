@@ -34,23 +34,32 @@
     <!--=============Inner Header==================== -->
 
     <!--===============Portfolio================== -->
+    {% if images %}
     <section class="space-ptb">
         <div class="container">
             <div class="my-shuffle-container columns-3 popup-gallery full-screen">
+                {% for image in images %}
                 <div class="grid-item">
                     <div class="portfolio-item">
-                        <img class="img-fluid" src="{% static 'fp/images/gallery/10.jpg' %}" alt="">
-                        <!--<div class="portfolio-info">-->
-                        <!--    <h6 class="portfolio-title"><a href="#">Title 1</a></h6>-->
-                        <!--</div>-->
+                        <img class="img-fluid" src="{{image.Image.url}}" alt="">
                         <div class="portfolio-icon">
-                            <a class="portfolio-img" href="{% static 'fp/images/gallery/10.jpg' %}"><i class="fa fa-arrows-alt"></i></a>
+                            <a class="portfolio-img" href="{{image.Image.url}}"><i class="fa fa-arrows-alt"></i></a>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </section>
+    {% else %}
+    <section class="space-ptb">
+        <div class="container">
+            <div class="my-shuffle-container columns-3 popup-gallery full-screen">
+                <h1>No images available</h1>
+            </div>
+        </div>
+    </section>
+    {% endif %}
     <!--===============Portfolio================== -->
 
     <!--===============footer==================-->

@@ -34,26 +34,42 @@
     <!--==================Inner Header=============== -->
     
     <!--====================Team============= -->
+    {% if products %}
+
     <section class="space-ptb team-grid">
       <div class="container">
         <div class="row">
-          
+          {% for product in products %}
           <div class="col-lg-3 col-sm-6 mb-4 pb-2">
-            <a class="btn-link" href="{% url 'product-details' %}"><div class="team team-style-1">
+            <a class="btn-link" href="{% url 'product-details' product.Url %}"><div class="team team-style-1">
+              {% if product.Image %}
               <div class="team-img">
-                <img class="img-fluid" src="{% static 'fp/images/products/2.jpg' %}" alt="">
+                <img class="img-fluid" src="{{product.Image.url}}" alt="">
               </div>
+              {% endif %}
               <div class="team-info">
-                <h6 class="team-title"><a href="{% url 'product-details' %}">Product 2</a><p class="pro-price"><del style="color:red;">$99</del>&nbsp $99</p></h6>
+                <h6 class="team-title"><a href="{% url 'product-details' product.Url %}">{{product.Title}}</a>{% if product.Show_Price %}<p class="pro-price"><del style="color:red;">${{product.Actual_Price}}</del>&nbsp ${{product.Offer_Price}}</p>{% endif %}</h6>
                 <!--<span class="team-designation">Description</span>-->
-                <a class="btn-link" href="{% url 'product-details' %}">View Product</a>
+                <a class="btn-link" href="{% url 'product-details' product.Url %}">View Product</a>
               </div>
             </div></a>
           </div>
-          
+          {% endfor %}
         </div>
       </div>
     </section>
+
+    {% else %}
+
+    <section class="space-ptb team-grid">
+      <div class="container">
+        <div class="row">
+          <h1>No products available</h1>
+        </div>
+      </div>
+    </section>
+
+    {% endif %}
     <!--=================Team================ -->
     
     <!--=================footer================-->

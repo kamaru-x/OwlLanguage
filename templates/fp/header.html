@@ -48,52 +48,51 @@
             <div class="container position-relative">
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse"><i class="fas fa-align-left"></i></button>
                 <a class="navbar-brand" href="{% url 'home-page' %}">
-            <img class="img-fluid" src="{% static 'fp/images/logo.png' %}" alt="logo">
+            <img class="img-fluid" src="{{contact.Image.url}}" alt="logo">
           </a>
                 <div class="navbar-collapse collapse justify-content-end justify-content-xl-center">
                     <ul class="nav navbar-nav">
                         <li class="nav-item dropdown active">
                             <a class="nav-link" href="{% url 'home-page' %}" role="button"  aria-haspopup="true" aria-expanded="false">Home</a>
                         </li>
-                        <li class="dropdown nav-item">
-                             <a class="nav-link" href="{% url 'about-page' %}" role="button"  aria-haspopup="true" aria-expanded="false">About</a>
-                        </li>
-                        <li class="dropdown nav-item">
-                             <a class="nav-link" href="{% url 'services-page' %}" role="button"  aria-haspopup="true" aria-expanded="false">Service</a>
-                             <!-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#"><span>Service1</span></a></li>
-                                <li><a class="dropdown-item" href="#"><span>Service2</span></a></li>
-                            </ul> -->
-                        </li>
-                        <!--<li class="dropdown nav-item">-->
-                        <!--     <a class="nav-link" href="team.php" role="button"  aria-haspopup="true" aria-expanded="false">Team</a>-->
-                        <!--</li>-->
-                        <li class="dropdown nav-item">
-                             <a class="nav-link" href="{% url 'products-page' %}" role="button"  aria-haspopup="true" aria-expanded="false">Products</a>
-                        </li>
-                        <li class="dropdown nav-item">
-                             <a class="nav-link" href="{% url 'blogs-page' %}" role="button"  aria-haspopup="true" aria-expanded="false">Blog</a>
-                        </li>
-                        <li class="dropdown nav-item">
-                             <a class="nav-link" href="{% url 'gallery-page' %}" role="button"  aria-haspopup="true" aria-expanded="false">Gallery</a>
-                        </li>
-                        <li class="dropdown nav-item">
-                            <a class="nav-link" href="{% url 'contact-page' %}" role="button"  aria-haspopup="true" aria-expanded="false">Contact</a>
-                        </li>
-                        <!--<li class="dropdown nav-item header-search">-->
-                        <!--    <div class="search">-->
-                        <!--        <a class="search-btn not_click" href="javascript:void(0);"></a>-->
-                        <!--        <div class="search-box not-click">-->
-                        <!--            <form action="#" method="get">-->
-                        <!--                <input type="text" class="not-click form-control" name="search" placeholder="Search.." autofocus>-->
-                        <!--                <button class="search-button" type="submit"> <i class="fa fa-search not-click"></i></button>-->
-                        <!--            </form>-->
-                        <!--        </div>-->
-                        <!--    </div>-->
-                        <!--</li>-->
+
+                        {% if manage.About_Page %}
+                          <li class="dropdown nav-item">
+                              <a class="nav-link" href="{% url 'about-page' %}" role="button"  aria-haspopup="true" aria-expanded="false">About</a>
+                          </li>
+                        {% endif %}
+                        
+                        {% if manage.Service_Page %}
+                          <li class="dropdown nav-item">
+                              <a class="nav-link" href="{% url 'services-page' %}" role="button"  aria-haspopup="true" aria-expanded="false">Service</a>
+                          </li>
+                        {% endif %}
+                        
+                        {% if manage.Products_Page %}
+                          <li class="dropdown nav-item">
+                              <a class="nav-link" href="{% url 'products-page' %}" role="button"  aria-haspopup="true" aria-expanded="false">Products</a>
+                          </li>
+                        {% endif %}
+                        
+                        {% if manage.Blog_Page %}
+                          <li class="dropdown nav-item">
+                              <a class="nav-link" href="{% url 'blogs-page' %}" role="button"  aria-haspopup="true" aria-expanded="false">Blog</a>
+                          </li>
+                        {% endif %}
+                        
+                        {% if manage.Image_Gallery %}
+                          <li class="dropdown nav-item">
+                              <a class="nav-link" href="{% url 'gallery-page' %}" role="button"  aria-haspopup="true" aria-expanded="false">Gallery</a>
+                          </li>
+                        {% endif %}
+
+                        {% if manage.Contact_Page %}
+                          <li class="dropdown nav-item">
+                              <a class="nav-link" href="{% url 'contact-page' %}" role="button"  aria-haspopup="true" aria-expanded="false">Contact</a>
+                          </li>
+                        {% endif %}
                     </ul>
                 </div>
-                <!--<a class="btn btn-primary btn-md mr-5 mr-xl-0 d-none d-sm-block" href="contact.php"><i class="btn-icon fas fa-long-arrow-alt-right"></i> <span>Get a quote</span> </a>-->
             </div>
         </nav>
          <div class="call">
@@ -103,6 +102,4 @@
         <div class="whatsappicon">
     <a href="#"><img src="{% static 'fp/images/whatsappicon.png' %}"></a></div>
   </div>
-    </header>
-    
-   
+</header> 

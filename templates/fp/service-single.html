@@ -52,24 +52,26 @@
         <div class="col-lg-12">
           <div class="row">
             <div class="col-md-6  col-sm-12 col-xs-12 col-12 mb-4 mb-md-0">
-              <div class="service-det">
-               <!--<div class="slider slider-for detail-big-car-gallery">-->
-                 <img src="{% static 'fp/images/service/single-01.jpg' %}" alt="">
-                <!--</div>-->
-                
-              </div>
+              {% if service.Image %}
+                <div class="service-det">
+                  <img src="{{service.Image.url}}" alt="">
+                </div>
+              {% endif %}
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12 col-12">
               <div class="product-detail">
-                <h4>Service Title</h4>
+                <h4>{{service.Title}}</h4>
                 <div class="product-price-rating">
-                  
-                  <div class="product-price">
-                    <h4><del>$24.99</del><span>$12.49</span></h4>
-                  </div>
+                  {% if service.Show_Price %}
+                    <div class="product-price">
+                      <h4><del>${{service.Actual_Price}}</del><span>${{service.Offer_Price}}</span></h4>
+                    </div>
+                  {% endif %}
                 </div>
-                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-               <a class="btn btn-primary btn-md mr-5 mr-xl-0  d-sm-block col-md-3" href="#" data-toggle="modal" data-target="#get-quote"><i class="btn-icon fas fa-long-arrow-alt-right"></i> <span>Enquire</span> </a>
+                <p>{{service.Description}}</p>
+                {% if service.Show_Enquiry %}
+                  <a class="btn btn-primary btn-md mr-5 mr-xl-0  d-sm-block col-md-3" href="#" data-toggle="modal" data-target="#get-quote"><i class="btn-icon fas fa-long-arrow-alt-right"></i> <span>Enquire</span> </a>
+                {% endif %}
               </div>
             </div>
           </div>
@@ -98,8 +100,8 @@
 <button type="button" class="close_form" data-dismiss="modal" aria-label="Close"></button>
 <div class="modal-body" style="padding:0;">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 clearfix push-left">
-<form class="form-width " method="POST" id="form_submit_1" action="booking_submit.php">
-
+<form class="form-width " method="POST" id="form_submit_1">
+{% csrf_token %}
   <h2 style="color:#3c479d; text-align:center; padding-top: 30px;">Quick Enquiry</h2>
   
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 clearfix float-left">

@@ -6,79 +6,68 @@
         <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
             <br><br>
            <div class="footer-logo mb-4"><br><br><br>
-            <a href="{% url  'home-page' %}"></a><img class="img-fluid" src="{% static 'fp/images/logo.png' %}" alt=""></a>
+            <a href="{% url  'home-page' %}"></a><img class="img-fluid" src="{{contact.Image.url}}" alt=""></a>
             </div>
-            <!--<p class="mb-4">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly.</p>-->
-            <!--<div class="footer-email">-->
-            <!--  <p class="text-white mb-1">Telephone : <a href="tel:123-345-6789">(123) 345-6789</a></p>-->
-            <!--  <p class="text-white mb-0">Email : <a href="mailto:letstalk@gmail.com">letstalk@gmail.com</a></p>-->
-            <!--</div>-->
         </div>
         <div class="col-lg-2 col-sm-6 mb-4 mb-lg-0">
           <div class="footer-link">
             <h6 class="text-white mb-3 mb-md-4">Quick Links</h6>
             <ul class="list-unstyled">
               <li><a href="{% url 'home-page' %}"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Home</a></li>
-              <li><a href="{% url 'about-page' %}"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>About</a></li>
-              <li><a href="{% url 'services-page' %}"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Services</a></li>
-              <!-- <li><a href="team.php"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Team</a></li> -->
-              <li><a href="{% url 'blogs-page' %}"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Blogs</a></li>
-              <li><a href="{% url 'gallery-page' %}"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Gallery</a></li>
-              <li><a href="{% url 'contact-page' %}"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Contact</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-2 col-sm-6 mb-4 mb-lg-0">
-          <div class="footer-link">
-            <h6 class="text-white mb-3 mb-md-4">Services</h6>
-            <ul class="list-unstyled">
-              <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Service1</a></li>
-              <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Service2</a></li>
-              <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Service3</a></li>
-              <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Service4</a></li>
-              <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Service5</a></li>
-              <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Service6</a></li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="col-lg-2 col-sm-6 mb-4 mb-lg-0">
-          <div class="footer-link">
-            <h6 class="text-white mb-3 mb-md-4">Products</h6>
-            <ul class="list-unstyled">
-              <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Product1</a></li>
-              <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Product2</a></li>
-              <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Product3</a></li>
-              <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Product4</a></li>
-              <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Product5</a></li>
-              <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Product6</a></li>
-            </ul>
-          </div>
-        </div>
+              {% if quick.About_Page %}
+                <li><a href="{% url 'about-page' %}"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>About</a></li>
+              {% endif %}
 
-        <div class="col-lg-2 col-sm-6 mb-4 mb-sm-0">
-          <div class="footer-link">
-            <h6 class="text-white mb-3 mb-md-4">Contact</h6>
-            <p>6580 Allison turnpike creminfort, AL 32808-4509<br>
-            214 West arnold st. new york, ny 10002-1978<br>
-            Telephone : <a href="tel:123-345-6789">(123) 345-6789</a><br>
-            Email : <a href="mailto:letstalk@gmail.com">letstalk@gmail.com</a></p>
-            <!--<h6 class="text-white mb-3 mb-md-4">Support Centre</h6>-->
-            <!--<p class="mb-0"></p>-->
+              {% if quick.Service_Page %}
+                <li><a href="{% url 'services-page' %}"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Services</a></li>
+              {% endif %}
+
+              {% if quick.Blog_Page %}
+                <li><a href="{% url 'blogs-page' %}"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Blogs</a></li>
+              {% endif %}
+
+              {% if quick.Image_Gallery %}
+                <li><a href="{% url 'gallery-page' %}"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Gallery</a></li>
+              {% endif %}
+
+              {% if quick.Contact_Page %}
+                <li><a href="{% url 'contact-page' %}"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Contact</a></li>
+              {% endif %}
+            </ul>
           </div>
         </div>
-      <!--  <div class="col-lg-3 col-sm-6">-->
-      <!--  <div class="footer-subscribe">-->
-      <!--     <h6 class="text-white mb-3 mb-md-4">Sign up for our newsletter</h6>-->
-      <!--    <p class="mb-3">Sign up to our Newsletter to get the latest news and offers.</p>-->
-      <!--    <form class="footer-form">-->
-      <!--      <div class="form-group">-->
-      <!--        <input type="text" class="form-control" placeholder="Enter your email">-->
-      <!--      </div>-->
-      <!--      <button type="submit" class="btn btn-light btn-flat"><i class="btn-icon fas fa-paper-plane"></i><span>Subscribe</span></button>-->
-      <!--   </form>-->
-      <!--  </div>-->
-      <!--</div>-->
+        {% if quick.Optional_Service %}
+          <div class="col-lg-2 col-sm-6 mb-4 mb-lg-0">
+            <div class="footer-link">
+              <h6 class="text-white mb-3 mb-md-4">Services</h6>
+              <ul class="list-unstyled">
+                <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Service1</a></li>
+              </ul>
+            </div>
+          </div>
+        {% endif %}
+        
+        {% if quick.Optional_Products %}
+          <div class="col-lg-2 col-sm-6 mb-4 mb-lg-0">
+            <div class="footer-link">
+              <h6 class="text-white mb-3 mb-md-4">Products</h6>
+              <ul class="list-unstyled">
+                <li><a href="#"><i class="btn-icon fas fa-long-arrow-alt-right mr-2"></i>Product1</a></li>
+              </ul>
+            </div>
+          </div>
+        {% endif %}
+        
+        {% if contact %}
+          <div class="col-lg-2 col-sm-6 mb-4 mb-sm-0">
+            <div class="footer-link">
+              <h6 class="text-white mb-3 mb-md-4">Contact</h6>
+              <p>{{contact.Adress}}<br>
+              Telephone : <a href="tel:123-345-6789">{{contact.Mobile}}</a><br>
+              Email : <a href="mailto:letstalk@gmail.com">{{contact.Email}}</a></p>
+            </div>
+          </div>
+        {% endif %}
       </div>
     </div>
     <div class="container">
@@ -92,7 +81,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <p class="mb-0 text-white"> &copy; Copyright <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span> <a href="{% url 'home-page' %}"> OwnLanguage </a> All Rights Reserved </p>
+            <p class="mb-0 text-white"> &copy; Copyright <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span> <a href="{% url 'home-page' %}"> {{contact.Company_Name}} </a> All Rights Reserved </p>
           </div>
           <div class="col-md-6  mt-2 mt-md-0 copyright text-md-right">
             Designed by <a href="#">Weblanza</a>

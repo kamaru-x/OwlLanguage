@@ -38,16 +38,17 @@
     <section class="space-ptb">
       <div class="container">
         <div class="row align-items-center">
+          {% if about.Image %}
           <div class="col-md-6 mb-md-0 mb-4">
-            <img class="img-fluid rounded" src="{% static 'fp/images/about/about-img.jpg' %}" alt="">
+            <img class="img-fluid rounded" src="{{about.Image.url}}" alt="">
           </div>
+          {% endif %}
           <div class="col-md-6">
             <div class="section-title" style="margin-bottom:20px; padding-top:24px;">
               <!--<span class="pre-title">We can help you</span>-->
-              <h2>All the Lorem Ipsum, Internet tend to repeat chunks.</h2>
+              <h2>{{about.Title}}</h2>
             </div>
-             <p class=" mb-4" style="text-align:justify;">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose.</p>
-            <p class=" mb-4" style="text-align:justify;">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+            <p class=" mb-4" style="text-align:justify;">{{about.Description|safe}}</p>
           </div>
         </div>
       </div>
@@ -63,12 +64,12 @@
         <div class="col-md-6">
           <h3><i class="flaticon-eye" style="color:#f85a14;"></i> Our Vision</h3>
           <!--<strong class="my-4">Our Vision</strong>-->
-          <p class="">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. </p>
+          <p class="">{{about.Vision}}</p>
          </div>
          <div class="col-md-6">
            <h3><i class="flaticon-checklist" style="color:#f85a14;"></i> Our Mission</h3>
           <!--<strong>Our Mission</strong>-->
-          <p class="mb-0">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. </p>
+          <p class="mb-0">{{about.Mission}}</p>
         </div>
         </div>
         <!--<div class="col-md-6">-->
