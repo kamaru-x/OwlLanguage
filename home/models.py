@@ -95,18 +95,19 @@ class Blog(models.Model):
         return self.Title
 
     # image resize function
-    # def save(self,*args,**kwargs):
-    #     super().save(*args,**kwargs)
-    #     img = IMG.open(self.Image.path)
+    def save(self,*args,**kwargs):
+        super().save(*args,**kwargs)
+        if self.Image:
+            img = IMG.open(self.Image.path)
 
-    #     if img.height > 600 or img.width > 600:
-    #         output_size = (600,600)
-    #         img.thumbnail(output_size)
-    #         img.save(self.Image.path)
-    #     elif img.height < 600 or img.width < 600:
-    #         output_size = (600,600)
-    #         img.thumbnail(output_size)
-    #         img.save(self.Image.path)
+            if img.height > 600 or img.width > 600:
+                output_size = (600,600)
+                img.thumbnail(output_size)
+                img.save(self.Image.path)
+            elif img.height < 600 or img.width < 600:
+                output_size = (600,600)
+                img.thumbnail(output_size)
+                img.save(self.Image.path)
 
 ########################################################################
 
@@ -140,18 +141,19 @@ class Album(models.Model):
 
 
     # image resize function
-    # def save(self,*args,**kwargs):
-    #     super().save(*args,**kwargs)
-    #     img = IMG.open(self.Thumbnail.path)
+    def save(self,*args,**kwargs):
+        super().save(*args,**kwargs)
+        if self.Thumbnail:
+            img = IMG.open(self.Thumbnail.path)
 
-    #     if img.height > 400 or img.width > 400:
-    #         output_size = (400,400)
-    #         img.thumbnail(output_size)
-    #         img.save(self.Thumbnail.path)
-    #     elif img.height < 400 or img.width < 400:
-    #         output_size = (400,400)
-    #         img.thumbnail(output_size)
-    #         img.save(self.Thumbnail.path)
+            if img.height > 400 or img.width > 400:
+                output_size = (400,400)
+                img.thumbnail(output_size)
+                img.save(self.Thumbnail.path)
+            elif img.height < 400 or img.width < 400:
+                output_size = (400,400)
+                img.thumbnail(output_size)
+                img.save(self.Thumbnail.path)
 
 ########################################################################
 
@@ -176,18 +178,19 @@ class Album_Image(models.Model):
         return self.Album_Name.Title
 
     # image resize function
-    # def save(self,*args,**kwargs):
-    #     super().save(*args,**kwargs)
-    #     img = IMG.open(self.Image.path)
+    def save(self,*args,**kwargs):
+        super().save(*args,**kwargs)
+        if self.Image:
+            img = IMG.open(self.Image.path)
 
-    #     if img.height > 800 or img.width > 800:
-    #         output_size = (800,800)
-    #         img.thumbnail(output_size)
-    #         img.save(self.Image.path)
-    #     elif img.height < 800 or img.width < 800:
-    #         output_size = (800,800)
-    #         img.thumbnail(output_size)
-    #         img.save(self.Image.path)
+            if img.height > 800 or img.width > 800:
+                output_size = (800,800)
+                img.thumbnail(output_size)
+                img.save(self.Image.path)
+            elif img.height < 800 or img.width < 800:
+                output_size = (800,800)
+                img.thumbnail(output_size)
+                img.save(self.Image.path)
 
 ########################################################################
 
@@ -264,18 +267,19 @@ class Product(models.Model):
         return self.Title
 
     # image resize function
-    # def save(self,*args,**kwargs):
-    #     super().save(*args,**kwargs)
-    #     img = IMG.open(self.Image.path)
+    def save(self,*args,**kwargs):
+        super().save(*args,**kwargs)
+        if self.Image:
+            img = IMG.open(self.Image.path)
 
-    #     if img.height > 600 or img.width > 600:
-    #         output_size = (600,600)
-    #         img.thumbnail(output_size)
-    #         img.save(self.Image.path)
-    #     elif img.height < 600 or img.width < 600:
-    #         output_size = (600,600)
-    #         img.thumbnail(output_size)
-    #         img.save(self.Image.path)
+            if img.height > 600 or img.width > 600:
+                output_size = (600,600)
+                img.thumbnail(output_size)
+                img.save(self.Image.path)
+            elif img.height < 600 or img.width < 600:
+                output_size = (600,600)
+                img.thumbnail(output_size)
+                img.save(self.Image.path)
 
 ########################################################################
 
@@ -314,18 +318,19 @@ class Service(models.Model):
         return self.Title
 
     # image resize function
-    # def save(self,*args,**kwargs):
-    #     super().save(*args,**kwargs)
-    #     img = IMG.open(self.Image.path)
+    def save(self,*args,**kwargs):
+        super().save(*args,**kwargs)
+        if self.Image:
+            img = IMG.open(self.Image.path)
 
-    #     if img.height > 600 or img.width > 600:
-    #         output_size = (600,600)
-    #         img.thumbnail(output_size)
-    #         img.save(self.Image.path)
-    #     elif img.height < 600 or img.width < 600:
-    #         output_size = (600,600)
-    #         img.thumbnail(output_size)
-    #         img.save(self.Image.path)
+            if img.height > 600 or img.width > 600:
+                output_size = (600,600)
+                img.thumbnail(output_size)
+                img.save(self.Image.path)
+            elif img.height < 600 or img.width < 600:
+                output_size = (600,600)
+                img.thumbnail(output_size)
+                img.save(self.Image.path)
 
 ########################################################################
 
@@ -418,18 +423,19 @@ class Group_Of_Companies(models.Model):
     Logo = models.ImageField(blank=True,null=True,upload_to='CompanyLogo')
 
     # image resize function
-    # def save(self,*args,**kwargs):
-    #     super().save(*args,**kwargs)
-    #     img = IMG.open(self.Logo.path)
+    def save(self,*args,**kwargs):
+        super().save(*args,**kwargs)
+        if self.Logo:
+            img = IMG.open(self.Logo.path)
 
-    #     if img.height > 500 or img.width > 500:
-    #         output_size = (500,500)
-    #         img.thumbnail(output_size)
-    #         img.save(self.Logo.path)
-    #     elif img.height < 500 or img.width < 500:
-    #         output_size = (500,500)
-    #         img.thumbnail(output_size)
-    #         img.save(self.Logo.path)
+            if img.height > 500 or img.width > 500:
+                output_size = (500,500)
+                img.thumbnail(output_size)
+                img.save(self.Logo.path)
+            elif img.height < 500 or img.width < 500:
+                output_size = (500,500)
+                img.thumbnail(output_size)
+                img.save(self.Logo.path)
 
 ########################################################################
 
@@ -455,18 +461,19 @@ class Testimonial(models.Model):
         return self.Tes_Name
 
     # image resize function
-    # def save(self,*args,**kwargs):
-    #     super().save(*args,**kwargs)
-    #     img = IMG.open(self.Tes_Image.path)
+    def save(self,*args,**kwargs):
+        super().save(*args,**kwargs)
+        if self.Tes_Image:
+            img = IMG.open(self.Tes_Image.path)
 
-    #     if img.height > 300 or img.width > 300:
-    #         output_size = (300,300)
-    #         img.thumbnail(output_size)
-    #         img.save(self.Tes_Image.path)
-    #     elif img.height < 300 or img.width < 300:
-    #         output_size = (300,300)
-    #         img.thumbnail(output_size)
-    #         img.save(self.Tes_Image.path)
+            if img.height > 300 or img.width > 300:
+                output_size = (300,300)
+                img.thumbnail(output_size)
+                img.save(self.Tes_Image.path)
+            elif img.height < 300 or img.width < 300:
+                output_size = (300,300)
+                img.thumbnail(output_size)
+                img.save(self.Tes_Image.path)
 
 ########################################################################
 
@@ -492,18 +499,19 @@ class Banners(models.Model):
         return self.Caption
 
     # image resize functions
-    # def save(self,*args,**kwargs):
-    #     super().save(*args,**kwargs)
-    #     img = IMG.open(self.Banner_Image.path)
+    def save(self,*args,**kwargs):
+        super().save(*args,**kwargs)
+        if self.Banner_Image:
+            img = IMG.open(self.Banner_Image.path)
 
-    #     if img.height > 1500 or img.width > 1500:
-    #         output_size = (1500,1500)
-    #         img.thumbnail(output_size)
-    #         img.save(self.Banner_Image.path)
-    #     elif img.height < 1500 or img.width < 1500:
-    #         output_size = (1500,1500)
-    #         img.thumbnail(output_size)
-    #         img.save(self.Banner_Image.path)
+            if img.height > 1500 or img.width > 1500:
+                output_size = (1500,1500)
+                img.thumbnail(output_size)
+                img.save(self.Banner_Image.path)
+            elif img.height < 1500 or img.width < 1500:
+                output_size = (1500,1500)
+                img.thumbnail(output_size)
+                img.save(self.Banner_Image.path)
 
 ########################################################################
 

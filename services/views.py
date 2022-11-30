@@ -121,12 +121,18 @@ def edit_service(request,sid):
         service.SMKeywords = request.POST.get('smkeywords')
         urls = Service.objects.all()
 
+        if service.Actual_Price and service.Offer_Price :
+            discount = (int(service.Actual_Price) - int(service.Offer_Price)) / int(service.Actual_Price) * 100
+        else:
+            discount = 0
+
         for u in urls :
             if u.Url == Service.Url:
                 messages.error(request,'service already exist with same name and url')
                 return redirect('services')
             else:
                 pass
+        service.Discount = discount
         service.save()
         messages.success(request,'service details edited successfully ...!')
         return redirect('.')

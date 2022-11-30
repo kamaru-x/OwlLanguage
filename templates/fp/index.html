@@ -68,7 +68,14 @@
                   </div>
                 {% endif %}
                 <div class="team-info">
-                  <h6 class="team-title"><a href="{% url 'product-details' product.Url %}">{{product.Title}}</a>{% if product.Show_Price %}<p class="pro-price"><del style="color:red;">${{product.Actual_Price}}</del>&nbsp ${{product.Offer_Price}}</p>{% endif %}</h6>
+                  <h6 class="team-title"><a href="{% url 'product-details' product.Url %}">{{product.Title}}</a>
+                  {% if product.Show_Price %}
+                    {% if product.Offer_Price %}
+                      <p class="pro-price"><del style="color:red;">${{product.Actual_Price}}</del>&nbsp ${{product.Offer_Price}}</p>
+                    {% else %}
+                      <p class="pro-price">${{product.Actual_Price}}</p>
+                    {% endif %}
+                  {% endif %}</h6>
                   <!--<span class="team-designation">Description</span>-->
                   <a class="btn-link" href="{% url 'product-details' product.Url %}">View Product</a>
                 </div>

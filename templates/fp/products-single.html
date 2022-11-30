@@ -64,9 +64,15 @@
                 <h4>{{product.Title}}</h4>
                 <div class="product-price-rating">
                   {% if product.Show_Price %}
-                    <div class="product-price">
-                      <h4><del>${{product.Actual_Price}}</del><span>${{product.Offer_Price}}</span></h4>
-                    </div>
+                    {% if product.Offer_Price %}
+                      <div class="product-price">
+                        <h4><del style="color: red;">${{product.Actual_Price}}</del><span style="color:blue;">${{product.Offer_Price}}</span></h4>
+                      </div>
+                    {% else %}
+                      <div class="product-price">
+                        <h4><span style="color:blue;">${{product.Actual_Price}}</span></h4>
+                      </div>
+                    {% endif %}
                   {% endif %}
                 </div>
                 <p>{{product.Description}}</p>

@@ -6603,7 +6603,7 @@ a.footer-logo-text:focus {
 }
 
 .footer-link ul li a {
-    color: rgba(255, 255, 255, 0.5);
+    color: #fff;
     padding: 7px 0px;
     display: block;
 }

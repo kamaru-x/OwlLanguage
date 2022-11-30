@@ -122,6 +122,14 @@ def edit_product(request,pid):
         product.SMTitle = request.POST.get('smtitle')
         product.SMDescription = request.POST.get('smdescription')
         product.SMKeywords = request.POST.get('smkeywords')
+
+        if product.Actual_Price and product.Offer_Price :
+            discount = (int(product.Actual_Price) - int(product.Offer_Price)) / int(product.Actual_Price) * 100
+        else:
+            discount = 0
+
+        product.Discount = discount
+
         product.save()
         messages.success(request,'product details edited successfully')
         return redirect('.')
