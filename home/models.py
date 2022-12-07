@@ -50,7 +50,9 @@ class About(models.Model):
 
     # additional
     Title = models.CharField(max_length=50)
+    Mission_Title = models.CharField(max_length=50,default='Mission')
     Mission = models.TextField()
+    Vision_Title = models.CharField(max_length=50,default='Vision')
     Vision = models.TextField(null=True,blank=True)
     Description = RichTextField(null=True,blank=True)
     Image = models.ImageField(blank=True,null=True,upload_to='about_us')

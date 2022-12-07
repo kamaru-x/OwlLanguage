@@ -76,9 +76,14 @@
                   {% endif %}
                 </div>
                 <p>{{product.Description}}</p>
-                {% if product.Show_Enquiry %}
-                  <a class="btn btn-primary btn-md mr-5 mr-xl-0  d-sm-block col-md-3" href="#" data-toggle="modal" data-target="#get-quote"><i class="btn-icon fas fa-long-arrow-alt-right"></i> <span>Enquire</span> </a>
-                {% endif %}
+                <div class="row">
+                  {% if product.Show_Enquiry %}
+                    <a class="btn btn-primary btn-md mr-5 mr-xl-0  d-sm-block col-md-3" href="#" data-toggle="modal" data-target="#get-quote"><i class="btn-icon fas fa-long-arrow-alt-right"></i> <span>Enquire</span> </a>
+                  {% endif %}
+                  {% if product.Show_Whatsapp %}
+                    <a class="btn btn-success btn-md mr-5 mr-xl-0  d-sm-block col-md-3" href="https://wa.me/+91{{contact.Whatsapp}}"><i class="btn-icon fas fa-long-arrow-alt-right"></i> <span>order whatsapp</span> </a>
+                  {% endif %}
+                </div>
               </div>
             </div>
           </div>
@@ -123,9 +128,17 @@
 </div>  
 </div>         
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 clearfix float-left">
-<div class="log_set" style="margin-bottom:30px;">
+<div class="log_set" style="margin-bottom:0px;">
 <label style="color:#000;">Email</label>
 <input type="email" name="email" value="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Enter your email" required="" style=" border:1px solid #ccc; padding: 0px 0px 0px 10px;">
+</div>
+<div class="log_set" style="margin-bottom:0px;">
+<label style="color:#000;">District</label>
+<input type="text" name="district" class="charonly" value="" placeholder="Enter your name" required="" style=" border:1px solid #ccc; padding: 0px 0px 0px 10px;">
+</div>
+<div class="log_set" style="margin-bottom:30px;">
+<label style="color:#000;">Address</label>
+<input type="text" name="address" class="charonly" value="" placeholder="Enter your name" required="" style=" border:1px solid #ccc; padding: 0px 0px 0px 10px;">
 </div>
 </div>
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 clearfix float-left"><button type="submit" name="btnSubmit" class="btn btn-primary" style="width:32%; margin-left:auto; margin-right:auto; display: block; margin-bottom:15px;"><i class="btn-icon fas fa-long-arrow-alt-right"></i>SUBMIT</button></div>

@@ -227,6 +227,8 @@ def product_single(request,url):
         name = request.POST.get('name')
         mobile = request.POST.get('mobile')
         email = request.POST.get('email')
+        district = request.POST.get('district')
+        address = request.POST.get('address')
 
         product_name = product.Title
         product_ref = product.Refer_number
@@ -237,7 +239,7 @@ def product_single(request,url):
         else:
             ip = request.META.get('REMOTE_ADDR')
 
-        data = Enquiry(Name=name,Mobile_Number=mobile,Email=email,Product_Name=product_name,Refer_number=product_ref,Date=date,Ip=ip)
+        data = Enquiry(Name=name,Mobile_Number=mobile,Email=email,Product_Name=product_name,Refer_number=product_ref,Date=date,Ip=ip,District=district,Address=address)
         data.save()
         return redirect('/product-details/%s' %product.Url)
 
@@ -286,6 +288,8 @@ def service_details(request,url):
         name = request.POST.get('name')
         mobile = request.POST.get('mobile')
         email = request.POST.get('email')
+        district = request.POST.get('district')
+        address = request.POST.get('address')
 
         service_name = service.Title
         service_ref = service.Refer_number
@@ -296,7 +300,7 @@ def service_details(request,url):
         else:
             ip = request.META.get('REMOTE_ADDR')
 
-        data = Enquiry(Name=name,Mobile_Number=mobile,Email=email,Product_Name=service_name,Refer_number=service_ref,Date=date,Ip=ip)
+        data = Enquiry(Name=name,Mobile_Number=mobile,Email=email,Product_Name=service_name,Refer_number=service_ref,Date=date,Ip=ip,Address=address,District=district)
         data.save()
         return redirect('/service-details/%s' %service.Url)
 

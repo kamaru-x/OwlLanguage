@@ -13,7 +13,7 @@ class AboutForm(forms.ModelForm):
     Description = forms.CharField(widget=CKEditorWidget())
     class Meta():
         model = About
-        fields = ('Title','Description','Image','Url','SMTitle','SMDescription','SMKeywords','Mission','Vision')
+        fields = ('Title','Description','Image','Url','SMTitle','SMDescription','SMKeywords','Mission','Vision','Mission_Title','Vision_Title')
 
         widgets = {
             'Title': TextInput(attrs={'class' : 'form-control','name' : 'title','id':'title'}),
@@ -23,7 +23,9 @@ class AboutForm(forms.ModelForm):
             'SMTitle' : TextInput(attrs={'class' : 'form-control'}),
             'SMKeywords' : TextInput(attrs={'class' : 'form-control'}),
             'SMDescription' : Textarea(attrs={'class' : 'form-control'}),
+            'Mission_Title' : TextInput(attrs={'class' : 'form-control','name' : 'mission-title'}),
             'Mission' : Textarea(attrs={'class' : 'form-control'}),
+            'Vision_Title' : TextInput(attrs={'class' : 'form-control','name' : 'vision-title'}),
             'Vision' : Textarea(attrs={'class' : 'form-control'}),
         }
 

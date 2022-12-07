@@ -20,10 +20,18 @@
                 <div class="container">
                     <div class="slider-social">
                         <ul class="list-unstyled">
+                          {% if contact.Facebook %}
                             <li><a href="{{contact.Facebook}}"> <i class="fab fa-facebook-f"></i> </a></li>
+                          {% endif %}
+                          {% if contact.Twitter %}
                             <li><a href="{{contact.Twitter}}"> <i class="fab fa-twitter"></i> </a></li>
+                          {% endif %}
+                          {% if contact.Instagram %}
                             <li><a href="{{contact.Instagram}}"> <i class="fab fa-pinterest-p"></i> </a></li>
+                          {% endif %}
+                          {% if contact.Linkedin %}
                             <li><a href="{{contact.Linkedin}}"> <i class="fab fa-linkedin-in"></i> </a></li>
+                          {% endif %}
                         </ul>
                         <span>Follow us</span>
                     </div>
@@ -31,7 +39,7 @@
             </div>
             <div class="swiper-wrapper">
               {% for banner in banners %}
-                <div class="swiper-slide align-items-center d-flex slide-01" style="background-image: url(static/fp/images/slider/home-02/01.jpg); background-repeat: no-repeat; background-size: cover; background-position: center;">
+                <div class="swiper-slide align-items-center d-flex slide-01" style="background-image: url('{{banner.Banner_Image.url}}'); background-repeat: no-repeat; background-size: cover; background-position: center;">
                     <div class="container">
                         <div class="row justify-content-end">
                             <div class="col-lg-7 col-sm-8 text-right text-sm-center px-4">
